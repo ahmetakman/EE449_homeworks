@@ -402,7 +402,7 @@ def visualizeWeights(weights, save_dir, filename='weigths'):
 
     Arguments:
     ----------
-    weights : numpy array of size 1024 x D where D is the number of weights
+    weights : numpy array of size 784 x D where D is the number of weights
     save_dir : string, path to directory to save the image
     filename : strint, name of the saved image (.png is to be appended automatically)
 
@@ -428,7 +428,7 @@ def visualizeWeights(weights, save_dir, filename='weigths'):
     # use global min / max to ensure all weights are shown on the same scale
     vmin, vmax = weights.min(), weights.max()
     for coef, ax in zip(weights.T, axes[:num_weights].ravel()):
-        coef = np.squeeze(coef).T if len(weights.shape) > 2 else coef.reshape(32, 32)
+        coef = np.squeeze(coef).T if len(weights.shape) > 2 else coef.reshape(28, 28)
         ax.matshow(coef, cmap=plt.cm.gray, vmin=.5 * vmin,
                    vmax=.5 * vmax)
 
@@ -451,7 +451,7 @@ def visualizeDataset(images, labels, save_dir, filename='dataset', num_samples_p
     for r in range(num_classes):
         sample_indcs = np.where(labels == r)[0][:num_samples_per_class]
         for n in range(num_samples_per_class):
-            axes[r, n].matshow(images[sample_indcs[n]].reshape(32, 32),
+            axes[r, n].matshow(images[sample_indcs[n]].reshape(28, 28),
                                cmap=plt.cm.gray)
             axes[r, n].set_xticks(())
             axes[r, n].set_yticks(())
