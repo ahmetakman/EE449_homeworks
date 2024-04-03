@@ -1,9 +1,0 @@
-\begin{thebibliography}{1}
-
-\bibitem{Brette2006SimulationON}
-R.~Brette, M.~Rudolph-Lilith, N.~T. Carnevale, M.~L. Hines, D.~Beeman, J.~M. Bower, M.~Diesmann, A.~Morrison, P.~H. Goodman, F.~C. Harris, M.~Zirpe, T.~Natschl{\"a}ger, D.~Pecevski, B.~Ermentrout, M.~Djurfeldt, A.~Lansner, O.~Rochel, T.~Vi{\'e}ville, E.~B. M{\"u}ller, A.~P. Davison, S.~E. Boustani, and A.~Destexhe, ``Simulation of networks of spiking neurons: A review of tools and strategies,'' {\em Journal of Computational Neuroscience}, vol.~23, pp.~349--398, 2006.
-
-\bibitem{Stimberg2019}
-M.~Stimberg, R.~Brette, and D.~F. Goodman, ``Brian 2, an intuitive and efficient neural simulator,'' {\em eLife}, vol.~8, p.~e47314, Aug. 2019.
-
-\end{thebibliography}
