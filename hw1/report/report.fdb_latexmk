@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex report"] 1712173883 "report.aux" "report.bbl" "report" 1712173884 0
+["bibtex report"] 0 "report.aux" "report.bbl" "report" 1712175067 -1
   "./refs.bib" 1702665358 1110 9cec781b6f3ebf0e4728d0ce14d7ce8b ""
   "/usr/local/texlive/2023/texmf-dist/bibtex/bst/base/ieeetr.bst" 1292289607 18361 1a00e58565e7f19bf2b3e1bfb82254ae ""
-  "report.aux" 1712173884 1633 cc55e504221b56f6d094f97efa9e86a9 "pdflatex"
+  "report.aux" 1712175066 2311 3f06a53eaf873cce2539f309bc427c03 "pdflatex"
   (generated)
   "report.bbl"
   "report.blg"
   (rewritten before read)
-["pdflatex"] 1712173883 "/home/ahmetakman/akman/METU EEE UNDERGRADUATE EDUCATION/8thTermSpring2024/EE449/Homeworks/hw1/report/report.tex" "report.pdf" "report" 1712173884 0
+["pdflatex"] 1712175064 "/home/ahmetakman/akman/METU EEE UNDERGRADUATE EDUCATION/8thTermSpring2024/EE449/Homeworks/hw1/report/report.tex" "report.pdf" "report" 1712175067 0
   "/home/ahmetakman/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk" 1702380216 25396 ebd8aec53eb4c06c4f6da5b09821148a ""
   "/home/ahmetakman/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk" 1712173416 31928 09a5d98577e1663accc800287d17b39f ""
   "/home/ahmetakman/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk" 1702582990 40112 47eea4c14f72fa79a978f00fdbe0258e ""
@@ -16,7 +16,7 @@
   "/home/ahmetakman/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecsl1000.600pk" 1702582989 29124 2615e8734c79fc5e2c27e8e5cb2ab290 ""
   "/home/ahmetakman/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1000.600pk" 1702582991 19908 bc26327ee48a63cf7cf1e1f3ee2f0baf ""
   "/home/ahmetakman/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk" 1701465026 31872 a134df632bed39969d5cd25768d28ee7 ""
-  "/home/ahmetakman/akman/METU EEE UNDERGRADUATE EDUCATION/8thTermSpring2024/EE449/Homeworks/hw1/report/report.tex" 1712173882 1611 3bcd4390a96913c61ea0ff9a61163b31 ""
+  "/home/ahmetakman/akman/METU EEE UNDERGRADUATE EDUCATION/8thTermSpring2024/EE449/Homeworks/hw1/report/report.tex" 1712175065 2157 0ad84558573f65451054ba870e95dc4a ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/ecbx1000.tfm" 1136768653 3584 2d666ecf6d466d8b007246bc2f94d9da ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm" 1136768653 3584 402da0b29eafbad07963b1224b222f18 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/ecbx1440.tfm" 1136768653 3584 13049b61b922a28b158a38aeff75ee9b ""
@@ -101,10 +101,13 @@
   "/usr/local/texlive/2023/texmf.cnf" 1701463816 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
   "figures/q1_1.png" 1712173337 38976 ec075288f405c14dd057695e2a1d9576 ""
   "figures/q1_2.png" 1712173346 43697 e73473c919f740ef4e7016621f3a646b ""
-  "report.aux" 1712173884 1633 cc55e504221b56f6d094f97efa9e86a9 "pdflatex"
+  "figures/q1_relu.png" 1712175044 39388 e48470ba703f0fa20b9d8537fe0cfd10 ""
+  "figures/q1_sigmoid.png" 1712173542 42485 ec2b2af4a0efa297f74196a072448b54 ""
+  "figures/q1_tanh.png" 1712173555 42807 a058fc977d3dbc60c5d8d76b9519bfa3 ""
+  "report.aux" 1712175066 2311 3f06a53eaf873cce2539f309bc427c03 "pdflatex"
   "report.bbl" 1712173883 724 268a5da574a47b0c78785ddac1de66dc "bibtex report"
-  "report.out" 1712173884 813 5d3363c0ca27aedf019c0d8cf192f603 "pdflatex"
-  "report.tex" 1712173882 1611 3bcd4390a96913c61ea0ff9a61163b31 ""
+  "report.out" 1712175066 813 5d3363c0ca27aedf019c0d8cf192f603 "pdflatex"
+  "report.tex" 1712175065 2157 0ad84558573f65451054ba870e95dc4a ""
   (generated)
   "report.aux"
   "report.log"

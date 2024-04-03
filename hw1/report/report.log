@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.12.1)  3 APR 2024 22:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.12.1)  3 APR 2024 23:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -378,16 +378,31 @@ File: figures/q1_2.png Graphic file (type png)
 <use figures/q1_2.png>
 Package pdftex.def Info: figures/q1_2.png  used on input line 46.
 (pdftex.def)             Requested size: 455.24411pt x 339.63274pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 64.
+<figures/q1_sigmoid.png, id=38, 581.17125pt x 454.69875pt>
+File: figures/q1_sigmoid.png Graphic file (type png)
+<use figures/q1_sigmoid.png>
+Package pdftex.def Info: figures/q1_sigmoid.png  used on input line 56.
+(pdftex.def)             Requested size: 455.24411pt x 356.18304pt.
+<figures/q1_tanh.png, id=39, 581.17125pt x 454.69875pt>
+File: figures/q1_tanh.png Graphic file (type png)
+<use figures/q1_tanh.png>
+Package pdftex.def Info: figures/q1_tanh.png  used on input line 65.
+(pdftex.def)             Requested size: 455.24411pt x 356.18304pt.
+<figures/q1_relu.png, id=40, 581.17125pt x 454.69875pt>
+File: figures/q1_relu.png Graphic file (type png)
+<use figures/q1_relu.png>
+Package pdftex.def Info: figures/q1_relu.png  used on input line 72.
+(pdftex.def)             Requested size: 455.24411pt x 356.18304pt.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 88.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 64.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 88.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
- <./figures/q1_1.png>] [2 <./figures/q1_2.png>] [3] (./report.bbl) [4] (./report.aux)
+ <./figures/q1_1.png>] [2 <./figures/q1_2.png>] [3 <./figures/q1_sigmoid.png>] [4 <./figures/q1_tanh.png>] [5 <./figures/q1_relu.png>] [6] (./report.bbl) [7] (./report.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-11-09>
@@ -396,18 +411,18 @@ Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: 5D3363C0CA27AEDF019C0D8CF192F603;813.
  ) 
 Here is how much of TeX's memory you used:
- 11128 strings out of 476227
- 168180 string characters out of 5796383
- 1928555 words of memory out of 5000000
- 32919 multiletter control sequences out of 15000+600000
+ 11158 strings out of 476227
+ 168828 string characters out of 5796383
+ 1929555 words of memory out of 5000000
+ 32943 multiletter control sequences out of 15000+600000
  567472 words of font info for 54 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  75i,7n,79p,626b,452s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/ahmetakman/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecsl1000.600pk> </home/ahmetakman/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/ahmetakman/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/ahmetakman/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> </home/ahmetakman/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk> </home/ahmetakman/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecsi1000.600pk> </home/ahmetakman/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1000.600pk> </home/ahmetakman/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk>
-Output written on report.pdf (4 pages, 121344 bytes).
+Output written on report.pdf (7 pages, 223959 bytes).
 PDF statistics:
- 300 PDF objects out of 1000 (max. 8388607)
- 91 compressed objects within 1 object stream
- 18 named destinations out of 1000 (max. 500000)
- 75 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 325 PDF objects out of 1000 (max. 8388607)
+ 106 compressed objects within 2 object streams
+ 24 named destinations out of 1000 (max. 500000)
+ 90 words of extra memory for PDF output out of 10000 (max. 10000000)
 
