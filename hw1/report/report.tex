@@ -188,7 +188,7 @@ So, we can interpret form 4, and 5 that the output of the convolution layer is t
 
 \section{Question 3}
 \subsection{Question 3.1}
-The implementations related to each architectures are completed as instructed. The code is given in appendix. As the result the plot shown in Figure 
+The implementations related to each architectures are completed as instructed. The code is given in appendix. As the result the plot shown in Figure \ref{Q3} is obtained. Also the first layer weights recorded are plotted and shown in Figure \ref{fig:weights}.
 
 \begin{figure}[htbp!]
     \centering
@@ -226,18 +226,27 @@ The implementations related to each architectures are completed as instructed. T
 
 \subsection{Question 3.2}
 
-
 \textbf{1.}
+Generalization performance of a classifier is the ability of the classifier to perform well on unseen data. That is, the classifier should be able to generalize the patterns in the training data to the test data. Overfitting phenomena is the case where the model fits the training data too much and lose its generalization.
 \textbf{2.}
+The plots, test vs training accuracy and validation vs training accuracy are the most informative in this sense.
 \textbf{3.}
+Somehow, the validation vs training accuracy plot is hard to read out. Therefore deductions are made from test vs training accuracy plots. First of all, one can see right away from the plot is CNN based models generalized  better where mlp based ones have testing accuracy is lower than that of training accuracy. On the other hand, amongst CNN based ones cnn4 has best accuracy in terms of both training and test accuracy. However, it can be deduced that cnn5 has the best generalization performance since it has quite high test accuracy compared to its training accuracy. The test scores are even better than the training scores. 
 \textbf{4.}
-\textbf{5.}
-\textbf{6.}
-\textbf{7.}
-\textbf{8.}
-\textbf{9.}
-\textbf{10.}
+As number of parameters increase number of points to fit to the data increases. Therefore, the model can fit the data better. So the classification performance increases as the number of parameters increase up to certain point. That is, after some point training process need to be longer to settle all the weights to a better point. This can be observed from CNN samples. From cnn3 to cnn4 both training and test accuracy increases. However, from cnn4 to cnn5, the test accuracy are almost same whereas the training accuracy decreases considerably. That is as the number of parameters increase, the model can fit the data better but the generalization performance decreases. ????? Check again this part ???????
 
+\textbf{5.}
+As the depth of the network increases, e.g. from mlp1 cnn5 network depth increases. In general as depth increases both classification performance increases up to certain then decreases. For generealization, we can say that it always increases according to the data we have right know in those examples. 
+\textbf{6.}
+The mlp weights are not interpretable. However, one may interpret what kind of filtering is done by the CNN weights by looking at the plots shown in Figure \ref{fig:weights}.
+\textbf{7.}
+The limited experience of the report writer does not allow to extract the information whether the filters are specific to the cases by looking at them. However, principally the certain CNN filters are trained to detect certain features in the input image. Therefore, the filters are should specific to the classes for better distingueshing them. 
+\textbf{8.}
+Similarly, it is hard to distinguish between the filters by looking at the weights. The most interpretable ones are from the cnn4 architecture. The filters are more clear in this case.
+\textbf{9.}
+The mlp1 and mlp2 are the simplest architectures that are similar to each other. The mlp2 introduces one more layer. The cnn3, cnn4 and cnn5 are the convolutional neural network architectures. The cnn3 has three layers with three different spatial kernels. The cnn5 has six convolutional layers with fixed spatial dimension, but it is deepeest of all five of the architectures. As having done in the previous sections the mlp2 is performs better than mlp1 by increasing number of parameters. Cnn4 performs better than cnn3 while having similar number parameters and having higher depth. Cnn5 has significantly low number of parameters so it underfits but generalizes quite nicely.
+\textbf{10.}
+I would pick cnn4 since it has the best test accuracy and generalization performance. It seems it can fit the data well and do not overfit in this setting.
 
 \section{Question 4}
 
