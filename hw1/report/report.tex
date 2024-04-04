@@ -101,7 +101,7 @@ The boundaries change in each run, since the initial weights and the data points
 
 
 \section{Question 2}
-A convolution operator is implemented. Using the provided inputs, outputs provided in Figure \ref{fig:convolution_out} is obtained.
+A convolution operator is implemented using a set of nested loop. The outputs are checked on a seperate code so that they are identical to the output of torch.conv2d. Using the provided inputs, outputs provided in Figure \ref{fig:convolution_out} are obtained.
 
 % 10 subfigure figure
 
@@ -156,14 +156,88 @@ A convolution operator is implemented. Using the provided inputs, outputs provid
 \end{figure}
 \subsection{Question 2.2 - Discussions}
 \textbf{1.}
+Two dimensional convolution operation provides filtering in two dimension via a kernel. The kernel is applied to the input image in a sliding window fashion. The output is obtained by element-wise multiplication of the kernel and the input image. The kernel is then shifted by a stride and the process is repeated. That is, two dimensional convolution operation with learnable kernal entries are commonly used in image processing to extract features from the image. The kernel is learned during the training process. Those feature maps encode necessary information about distinct clues in the image. For example in the case of object recognition, a specific kernel can be trained to detect bicyle rims. 
+Kernel of a convolution layer corresponds to the filter function in one dimension. It is used to suppress or enhance certain information in the input image.
+
+\textbf{2.}The sizes of the kernel corresponds to the size of the filter. Therefore, the size list can be explained as follows (batch size, input channels, output channels, filter height, filter width) . Batch size is the number of input sets in a batch if batching is used, here we have not utilized it. Input channels are the number of depth dimension in the image, for example in RGB frames it is three. This might be different for different sensor inputs and representations. The output channel number determines the depth dimension of the output tensor. The filter height and width are the dimensions of the filter.
+
+\textbf{3.}
+To understand what exactly happened here, let us plot the kernel and input for the number zero. Figure \ref{fig:kernel_input} illustrates the plot.
+
+\begin{figure}[htbp!]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/q2_kernels.png}
+        \caption{Kernels}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/q2_zero_input.png}
+        \caption{Input set for number zero.}
+    \end{subfigure}
+    \caption{Kernel and input for number zero.}
+    \label{fig:kernel_input}
+\end{figure}
+When we have a look at what output image represents, on each row an input image is convolved with a kernel. There are different kernels applied to the input image. The output image is the result of those convolutions. Figure \ref{fig:kernel_input} shows the input and kernel pairs in order.
+
+\textbf{4.}
+Each convolution kernel embeds a certain feature of the image. That is, if we have a look at Figure \ref{fig:kernel_input}.a we can see that kernel 4 enhances the countours on the image whereas kernel 6 enhances the filled part of those contours. This is the reason why we see similarly formatted outputs on the same column.
+\textbf{5.}
+Similarly, since we "highlight" different properties on the image with out filters, we see different patterns on the output side even if the input is the same.
+
+\textbf{6.}
+So, we can interpret form 4, and 5 that the output of the convolution layer is the result of the feature extraction process. The output is the result of the convolution of the input image with the learned filters. The output is the feature map that encodes the information about the input image. By post-processing those feature maps, we can obtain the necessary interpreations about the input image.
+
+\section{Question 3}
+\subsection{Question 3.1}
+The implementations related to each architectures are completed as instructed. The code is given in appendix. As the result the plot shown in Figure 
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=1\textwidth]{figures/q3_results.png}
+    \caption{Benchmark of five different architectures.}
+    \label{Q3}
+\end{figure}
+
+
+\begin{figure}[htbp!]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/weights_mlp_1.png}
+        \caption{mlp 1}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/weights_mlp_2.png}
+        \caption{mlp 2}
+    \end{subfigure}\vskip\baselineskip
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/weights_cnn_3.png}
+        \caption{cnn 3}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/weights_cnn_4.png}
+        \caption{cnn 4}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/weights_cnn_5.png}
+        \caption{cnn 5}
+    \end{subfigure}\hfill
+    \caption{Weights of the first layers.}
+    \label{fig:weights}
+\end{figure}
+
+\subsection{Question 3.2}
+
+
+\textbf{1.}
 \textbf{2.}
 \textbf{3.}
 \textbf{4.}
 \textbf{5.}
 \textbf{6.}
+\textbf{7.}
+\textbf{8.}
+\textbf{9.}
+\textbf{10.}
 
-
-\section{Question 3}
 
 \section{Question 4}
 
