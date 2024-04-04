@@ -31,48 +31,72 @@
 
 \section{Question 1}
 
-\subsection{Question 1.1}
-\begin{figure}
+\subsection{Question 1.1 - Preliminaries}
+The partial derivaive calculation steps for Tanh, Sigmoid and ReLU activation functions are shown in Figure \ref{partial_der}.
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/partial_der.jpg}
+    \caption{Partial derivative calculation steps for Tanh, Sigmoid and ReLU activation functions.}
+    \label{partial_der}
+\end{figure}
+
+Figure \ref{fig:activation_functions} illustrates the activation functions' response between -2 and 2. The plots are obtained using matplotlib library as instucted.
+
+\begin{figure}[htbp!]
     \centering
     \includegraphics[width=1\textwidth]{figures/q1_1.png}
     \caption{Activation functions plot.}
     \label{fig:activation_functions}
 \end{figure}
 
+Figure \ref{fig:activation_functions_gradient} indicates the gradients of those functions in the same range. The gradients are calculated using the partial derivatives derived in Figure \ref{partial_der}.
 
-
-\begin{figure}
+\begin{figure}[htbp!]
     \centering
     \includegraphics[width=1\textwidth]{figures/q1_2.png}
     \caption{Gradients of the activation functions plot.}
     \label{fig:activation_functions_gradient}
 \end{figure}
 
+
+
 \subsection{Question 1.2}
 
-
-\begin{figure}
+In this part, utilizing the given template of code, MLP with one hidden layer is implemented. The input-output pairs are fetched from the XOR data provided in utils.py. Note that for all networks learning rate is fixed to 0.00001 and seed is utilized. Figure \ref{fig:sigmoid_q1} shows the decision boundary for the sigmoid activated network. 
+\begin{figure}[htbp!]
     \centering
     \includegraphics[width=1\textwidth]{figures/q1_sigmoid.png}
     \caption{Sigmoid activated XOR problem output.}
     \label{fig:sigmoid_q1}
 \end{figure}
+Similarly, Figure \ref{fig:tanh_q1} is the decision boundary for the tanh activated network and Figure \ref{fig:relu_q1} is the decision boundary for the ReLU activated network.
 
 
-
-\begin{figure}
+\begin{figure}[htbp!]
     \centering
     \includegraphics[width=1\textwidth]{figures/q1_tanh.png}
     \caption{Tanh activated XOR problem output.}
     \label{fig:tanh_q1}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[htbp!]
     \centering
     \includegraphics[width=1\textwidth]{figures/q1_relu.png}
     \caption{ReLU activated XOR problem output.}
     \label{fig:relu_q1}
 \end{figure}
+
+\subsection{Question 1.3}
+\textbf{1.}
+All of those activation functions provide a smooth transition from one state to another. The advantage of Tanh and Sigmoid is, they are limited in the range of -1 to 1 and 0 to 1, respectively. This property can be beneficial in some cases. However, the ReLU function is not limited in the range. It is also computationally cheaper than the other two. The disadvantage of ReLU is that it is not smooth at the origin. This can cause some problems in the optimization process. Another advantage of ReLU is negative gradients are zero. This may be helpful in some cases. 
+\textbf{2.}
+
+XOR problem is two input decision problem where inputs have to be different than each other to obtain 1. Since the output is always with respect to the state of two variables, decision boundary is not linear. Therefore, a single layer perceptron can not solve since in one step two case evaluations can not be done. Yet, by adding a hidden layer, the problem is solved. The activation functions are used to introduce non-linearity to the network. The decision boundary of the XOR problem is shown in Figures \ref{fig:sigmoid_q1}, \ref{fig:tanh_q1} and \ref{fig:relu_q1}. As can be seen from the figures, the MLP's with activation functions can solve the XOR problem at some extent.
+
+\textbf{3.}
+The boundaries change in each run, since the initial weights and the data points are randomly generated. Therefore, the decision boundaries are dependent on the training process where initial randomness lead to different outputs.
+
+
 \section{Question 2}
 
 \section{Question 3}
