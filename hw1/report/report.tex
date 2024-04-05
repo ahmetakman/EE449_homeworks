@@ -233,6 +233,25 @@ The plots, test vs training accuracy and validation vs training accuracy are the
 \textbf{3.}
 Somehow, the validation vs training accuracy plot is hard to read out. Therefore deductions are made from test vs training accuracy plots. First of all, one can see right away from the plot is CNN based models generalized  better where mlp based ones have testing accuracy is lower than that of training accuracy. On the other hand, amongst CNN based ones cnn4 has best accuracy in terms of both training and test accuracy. However, it can be deduced that cnn5 has the best generalization performance since it has quite high test accuracy compared to its training accuracy. The test scores are even better than the training scores. 
 \textbf{4.}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Architecture} & \textbf{Trainable Params} \\
+    \hline
+    mlp 1 & 25,450 \\
+    mlp 2 & 27,818 \\
+    cnn 3 & 22,626 \\
+    cnn 4 & 14,962 \\
+    cnn 5 & 10,986 \\
+    \hline
+    \end{tabular}
+    \caption{Trainable Parameters of Different Architectures}
+    \label{table:TrinableParams}
+\end{table}
+
+
 As number of parameters increase number of points to fit to the data increases. Therefore, the model can fit the data better. So the classification performance increases as the number of parameters increase up to certain point. That is, after some point training process need to be longer to settle all the weights to a better point. This can be observed from CNN samples. From cnn3 to cnn4 both training and test accuracy increases. However, from cnn4 to cnn5, the test accuracy are almost same whereas the training accuracy decreases considerably. That is as the number of parameters increase, the model can fit the data better but the generalization performance decreases. ????? Check again this part ???????
 
 \textbf{5.}
