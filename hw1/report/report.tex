@@ -15,7 +15,35 @@
 \onehalfspacing
 
 \usepackage{subcaption}
+\usepackage{listingsutf8}
 
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
 
 \student{Ahmet Akman 2442366}                             
 \semester{Spring 2024}                            
@@ -265,7 +293,7 @@ The generalization performance of a classifier is the ability of the classifier 
 \end{table}
 
 
-\noindent As the number of parameters increases, the number of points to fit the data increases. Therefore, the model can fit the data better in the most basic setting. The number of parameters for each architecture is given in Figure \ref{table: TrinableParams}. So, classification performance increases as the number of parameters increases to a certain point, as we can observe from multi-layer perceptron training. From cnn3 to cnn4, both training and test accuracy increases, but a number of parameters are lower in cnn4. However, from cnn4 to cnn5, the test accuracy is almost the same, whereas the training accuracy decreases considerably. Therefore, it can be said that using only a number of parameters to describe generalization and training capabilities is not the best idea. 
+\noindent As the number of parameters increases, the number of points to fit the data increases. Therefore, the model can fit the data better in the most basic setting. The number of parameters for each architecture is given in Figure \ref{table:TrinableParams}. So, classification performance increases as the number of parameters increases to a certain point, as we can observe from multi-layer perceptron training. From cnn3 to cnn4, both training and test accuracy increases, but a number of parameters are lower in cnn4. However, from cnn4 to cnn5, the test accuracy is almost the same, whereas the training accuracy decreases considerably. Therefore, it can be said that using only a number of parameters to describe generalization and training capabilities is not the best idea. 
 
 \textbf{5.}
 \noindent As the depth of the network increases, e.g., from mlp1 cnn5 network depth increases, in general, both classification performance increases up to a certain level and then decreases. For generalization, we can say that it always increases according to the data we have right now in those examples. 
@@ -388,6 +416,18 @@ I picked the cnn3 architecture for learning rate experimentation. The learning r
 
 \textbf{4.}
 \noindent When we compare these results with the one in question 3, where we trained the network with an ADAM optimizer, we can see that SGD yields a slightly better point. However, ADAM seems to converge faster than SGD. Yet, in this case, these two differences are quite subtle.
+
+
+\section*{Appendix}
+The code set used throughout this homework is provided as follows. The code is written using VSCode and jupyter notebook infrastructure. The code is run on several different computational units that is why there are generic CUDA and CPU selection expressions. The code is converted from jupyter notebook to python script using the jupyter nbconvert command. At the end checkers used for q2 and a3 are also provided.
+
+
+\lstinputlisting[language=Python]{hw1_flat.py}
+
+\lstinputlisting[language=Python]{check_q2.py}
+
+\lstinputlisting[language=Python]{check_q3.py}
+
 %--------------------------------------BIBLIOGRAFIA-------------------------------------------
 \nocite{*} 
 
