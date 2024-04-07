@@ -242,11 +242,11 @@ def part4Plots(results, save_dir='', filename='', show_plot=True):
 
     relu_curve_args = [{'c': color_list[k],
                         'linestyle': style_list[0],
-                        'linewidth': 2} for k in range(num_results)]
+                        'linewidth': 3, 'alpha': 0.25} for k in range(num_results)]
 
     sigmoid_curve_args = [{'c': color_list[k],
                         'linestyle': style_list[1],
-                        'linewidth': 2} for k in range(num_results)]
+                        'linewidth': 3, 'alpha': 0.25} for k in range(num_results)]
 
 
 
