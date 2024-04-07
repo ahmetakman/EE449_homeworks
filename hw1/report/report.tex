@@ -68,7 +68,7 @@ Figure \ref{fig:activation_functions_gradient} indicates the gradients of those 
 In this part, utilizing the given template of code, MLP with one hidden layer is implemented. The input-output pairs are fetched from the XOR data provided in utils.py. Note that for all networks learning rate is fixed to 0.00001 and seed is utilized. Figure \ref{fig:sigmoid_q1} shows the decision boundary for the sigmoid activated network. 
 \begin{figure}[htbp!]
     \centering
-    \includegraphics[width=1\textwidth]{figures/q1_sigmoid.png}
+    \includegraphics[width=0.8\textwidth]{figures/q1_sigmoid.png}
     \caption{Sigmoid activated XOR problem output.}
     \label{fig:sigmoid_q1}
 \end{figure}
@@ -77,14 +77,14 @@ Similarly, Figure \ref{fig:tanh_q1} is the decision boundary for the tanh activa
 
 \begin{figure}[htbp!]
     \centering
-    \includegraphics[width=1\textwidth]{figures/q1_tanh.png}
+    \includegraphics[width=0.8\textwidth]{figures/q1_tanh.png}
     \caption{Tanh activated XOR problem output.}
     \label{fig:tanh_q1}
 \end{figure}
 
 \begin{figure}[htbp!]
     \centering
-    \includegraphics[width=1\textwidth]{figures/q1_relu.png}
+    \includegraphics[width=0.8\textwidth]{figures/q1_relu.png}
     \caption{ReLU activated XOR problem output.}
     \label{fig:relu_q1}
 \end{figure}
@@ -282,19 +282,101 @@ I would pick cnn4 since it has the best test accuracy and generalization perform
 \section{Question 4}
 
 \subsection{Question 4.1}
-As instructed in the homework documentation, the implementation for both RuLU and sigmoid activate models are done. Necessary statistics are recorded. As a result the plot shown in Figure \ref{fig:q4} is obtained.
+As instructed in the homework documentation, the implementation for both RuLU and sigmoid activate models are done. Necessary statistics are recorded. As a result the plot shown in Figure \ref{fig:q4} is obtained. Note than the utils.py had to be modified (alpha value edited) to have a proper distinction. Also, Figure \ref{fig:q4_ind} illustrates the individual results for each architecture.
 
 \begin{figure}[htbp!]
     \centering
-    \includegraphics[width=1\textwidth]{figures/q4_plot.png}
+    \includegraphics[width=1\textwidth]{figures/part4_alpha.png}
     \caption{Benchmark of five different architectures trained using ReLU and Sigmoid activation functions.}
     \label{fig:q4}
 \end{figure}
 
 
+
+\begin{figure}[htbp!]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/part4_alpha_mlp_1.png}
+        \caption{mlp 1}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/part4_alpha_mlp_2.png}
+        \caption{mlp 2}
+    \end{subfigure}\vskip\baselineskip
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/part4_alpha_cnn_3.png}
+        \caption{cnn 3}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/part4_alpha_cnn_4.png}
+        \caption{cnn 4}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/part4_alpha_cnn_5.png}
+        \caption{cnn 5}
+    \end{subfigure}\hfill
+    \caption{ReLU vs Sigmoid for each architecture.}
+    \label{fig:q4_ind}
+\end{figure}
+
+\subsection{Question 4.2 - Discussions}
+
+\textbf{1. -- 2.}
+Gradient behaviour is similar in each architecture if we focus on ReLU activated ones. The values fluctuates around 0 line as expected. However, the sigmoid activated ones have a different behaviour. The gradients are quite smaller. Also as the depth increases the gradients for sigmoid activated ones are gets smaller and quite close to 0. This is due to the vanishing gradient problem. The gradients are smaller and smaller as the depth increases in each leyer pass. Furthermore, for cnn5 case it is almost always 0. It can be said that using sigmoid activation function instead of ReLU is not the best idea for deep networks.
+
+\textbf{3.}
+
+In part 1.2. case the network was only one layer but still, the effect was similar where the gradient values were smaller in Sigmoid activated one. However it is important to note that in order to obtain a similar performance in both of the ReLU and Sigmoid one, learning rate needs to be adjusted where in overall the weight update step yields to similar scales. In this report to have a fair comparison the learning rate was fixed to a small value where ReLU did not blow-up the gradients.
+
+\textbf{4.}
+
+As pointed out in the previous paragraph, this time Sigmoid could have performed better and avoid vanishing the gradients. On the other hand depending on the rates, ReLU could have explode and improperly update the weights.
 \section{Question 5}
+This time validation set is selected as ten percent of the training set.
+\subsection{Question 5.1}
+I picked the cnn3 architecture for learning rate experimentation. The learning rates are selected as 0.1, 0.01, 0.001, 0.0001 and 0.00001. The results are shown in Figure \ref{fig:q5}.
 
 
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=1\textwidth]{figures/q5_1.png}
+    \caption{Different learning rate settings on cnn3.}
+    \label{fig:q5}
+\end{figure}
+
+Then scheduling is applied to the learning rate. Figure \ref{fig:q5_sch} illustrates the scheduling applied cases. The learning rate is decreased by a factor of 0.1 at each selected epochs.
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/part5_cnn_3_scheduled_1.png}
+    \caption{No scheduling}
+    \label{fig:q5_sch_1}
+\end{figure}
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/part5_cnn_3_scheduled_2.png}
+    \caption{LR dropped at 7th epch}
+    \label{fig:q5_sch_2}
+\end{figure}
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/part5_cnn_3_scheduled_2.png}
+    \caption{LR dropped at 7th epch}
+    \label{fig:q5_sch_3}
+\end{figure}
+
+It should be indicated that, an inconsistent behaviour for dropping learning rate only for once case is observed. For example, when exact same setup is run on different CUDA setups, the results were quite different yet this also can be observed from the initial part of the b). This is repeated multiple times in different computation units. This was assumed to be unsolved problem related random initializations and seed.
+
+\subsection{Question 5.2 - Discussions}
+
+\textbf{1.}
+
+\textbf{2.}
+
+\textbf{3.}
+
+\textbf{4.}
 
 %--------------------------------------BIBLIOGRAFIA-------------------------------------------
 
