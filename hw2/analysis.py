@@ -95,7 +95,7 @@ for file in files:
     plt.tight_layout()
     #plt.show()
     # save the figure
-    fig.savefig("hw2/out_sweep/average_fitness_" + file.split(".")[0] + ".png")
+    fig.savefig("hw2/out_sweep/average_fitness_" + file.split(".h")[0] + ".png")
 
     # plot the best fitness
     # Plot the data on A5 paper use Arial font. Use 4:3 aspect ratio.
@@ -113,7 +113,26 @@ for file in files:
     ax0.text(0.985, 0.225, text_info + "\n Final Score: " + str(best_fitness[-1]), horizontalalignment='right', verticalalignment='center', transform=ax0.transAxes, fontsize=14, fontweight='bold', color='black', alpha=0.75, bbox=dict(facecolor='white', edgecolor='black', boxstyle='round,pad=0.1'))
     plt.tight_layout()
     # plt.show()
-    fig.savefig("hw2/out_sweep/best_fitness_" + file.split(".")[0] + ".png")
+    fig.savefig("hw2/out_sweep/best_fitness_" + file.split(".h")[0] + ".png")
+
+
+    # plot the best fitness
+    # Plot the data on A5 paper use Arial font. Use 4:3 aspect ratio.
+    fig = plt.figure(figsize=(8.3, 5.8))
+    gs = gridspec.GridSpec(1, 1)
+    plt.rcParams["font.family"] = "sans-serif"
+    plt.rcParams["font.sans-serif"] = ["DejaVu Sans"]
+    ax0 = plt.subplot(gs[0, 0])
+    ax0.plot(range(1000, 10000), best_fitness[1000:], linestyle='-', color='#7570b3', linewidth=3.0, alpha=1)
+    ax0.set_xlabel('# Generations', fontsize=18, labelpad=10)
+    ax0.set_ylabel('Fitness', fontsize=18, labelpad=10)
+    ax0.grid()
+    ax0.set_title('Best Fitness from 1000th Gen', fontsize=20, pad=20)
+    ax0.tick_params(axis='both', which='major', labelsize=16)
+    ax0.text(0.985, 0.225, text_info + "\n Final Score: " + str(best_fitness[-1]), horizontalalignment='right', verticalalignment='center', transform=ax0.transAxes, fontsize=14, fontweight='bold', color='black', alpha=0.75, bbox=dict(facecolor='white', edgecolor='black', boxstyle='round,pad=0.1'))
+    plt.tight_layout()
+    # plt.show()
+    fig.savefig("hw2/out_sweep/best_fitness_1000_" + file.split(".h")[0] + ".png")
 
 
     # plot the images for the 10 generations
@@ -131,6 +150,6 @@ for file in files:
     fig.text(0.9, 0.845, text_info, ha='right', fontsize=8, fontweight='bold', color='black', alpha=0.75)
     fig.tight_layout(rect=[0, 0.03, 1, 0.95])
     # plt.show()
-    fig.savefig("hw2/out_sweep/images_" + file.split(".")[0] + ".png")
+    fig.savefig("hw2/out_sweep/images_" + file.split(".h")[0] + ".png")
 
     print("Done")
