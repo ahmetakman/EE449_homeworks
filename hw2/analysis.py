@@ -56,7 +56,7 @@ files = [file for file in files if file.endswith(".h5")]
 
 # loop through the files and read the data
 for file in files:
-    # file = "output_20_50_5_0.2_0.6_0.2_guided.h5"
+    file = "outputFRAC_20_50_5_0.2_0.6_0.2_guided.h5"
     data, average_fitness, best_fitness = read_data(data_folder + "/" + file)
     # get the paremeter values from the file name
     parts = file.split("_")
