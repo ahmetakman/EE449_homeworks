@@ -681,8 +681,8 @@ The evolution of the best individual for stochastic mutation probability is give
 
 Even though the results are not conclusive, the stochastic mutation probability can be a good idea to explore the search space more effectively by deviating around the mutation probability in each generation.
 
-\subsection{Dynamic Mutation Probability}
-Similarly, the mutation probability can be made dynamic. This means that the mutation probability can be changed based on the number of generations. This can help the algorithm to escape from local minima. Figure \ref{fig:dynamic_mutation} shows the fitness curves for the best individual when the mutation probability is dynamic. The mutation probability is decreased in each thousand generation.
+\subsection{Mutation Probability Scheduling}
+Similarly, the mutation probability can be made dynamic. This means that the mutation probability can be changed based on the number of generations. This can help the algorithm to escape from local minima. Figure \ref{fig:dynamic_mutation} shows the fitness curves for the best individual when the mutation probability is dynamic. The mutation probability is decreased in each thousand generation starting from 0.8.
 
 \begin{figure}[H]
     \begin{subfigure}{0.5\textwidth}
@@ -707,9 +707,9 @@ The evolution of the best individual for dynamic mutation probability is given i
 \end{figure}
 
 
-\subsection{Dynamic Elite/Parents Size}
+\subsection{Elite/Parents Size Scheduling}
 
-The family size can be made dynamic. This means that the family size can be changed based on the number of generations. This would help the algorithm to favor elites later in the generations. Figure \ref{fig:dynamic_family} shows the fitness curves for the best individual when the number of elites and number of parents are dynamic. The number of parents are decreased in each thousand generation while number of elites is increased.
+The family size can be made scheduled. This means that the family size can be changed based on the number of generations. This would help the algorithm to favor elites later in the generations. Figure \ref{fig:schedule_fit} shows the fitness curves for the best individual when the number of elites and number of parents are dynamic. The number of parents are decreased in each thousand generation while number of elites is increased. That is fraction of parents is decreased from 0.8 to 0.35 gradually where the fraction of elites increased from 0.03 to 0.25.
 
 \begin{figure}[H]
     \begin{subfigure}{0.5\textwidth}
@@ -720,16 +720,16 @@ The family size can be made dynamic. This means that the family size can be chan
         \includegraphics[width=\textwidth]{figures/best_fitness_1000_outputFRAC_20_50_5_0.2_0.6_0.2_guided.png}
         \caption{From 1000th generation to 10000th generation.}
     \end{subfigure}
-    \caption{Fitness curves for dynamic family size.}
-\label{fig:dynamic_family}
+    \caption{Fitness curves for elite/parents size scheduling.}
+\label{fig:schedule_fit}
 \end{figure}
 
-The evolution of the best individual for dynamic family size is given in Figure \ref{fig:dynamic_family_image}.
+The evolution of the best individual for dynamic family size is given in Figure \ref{fig:schedule_fit_image}.
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/images_outputFRAC_20_50_5_0.2_0.6_0.2_guided.png}
-    \caption{Quantitative evolution of the best individual in the population for dynamic family size.}
-    \label{fig:dynamic_family_image}
+    \caption{Quantitative evolution of the best individual in the population for elite/parents size scheduling.}
+    \label{fig:schedule_fit_image}
 \end{figure}
 
 
