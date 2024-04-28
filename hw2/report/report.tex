@@ -648,11 +648,91 @@ The evolution of the best individual for unguided mutation is given in Figure \r
 
 There are three suggestions, based on our observations and results, that can be made to improve the performance of the algorithm.
 
-\subsection{Search Space Narrowing}
+\subsection{Probabilistic Mutation Probability}
+First suggestion is, the mutation probability can be made stochastic. This means that the mutation probability can be changed in each generation. This can be done by using a probability distribution. For example, the mutation probability can be sampled from a beta distribution in each generation. This can help the algorithm to explore the search space more effectively. Figure \ref{fig:stochastic_mutation} shows the fitness curves for the best individual when the mutation probability is stochastic. An example pdf for beta distribution is shown in Figure \ref{fig:beta_dist}.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/beta_variate.png}
+    \caption{A sample histogram for beta distributed samples when value is around 0.2.}
+    \label{fig:beta_dist}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/best_fitness_outputSTOC_20_50_5_0.2_0.6_0.21864011617446064_guided.png}
+        \caption{From first generation to 10000th generation.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/best_fitness_1000_outputSTOC_20_50_5_0.2_0.6_0.21864011617446064_guided.png}
+        \caption{From 1000th generation to 10000th generation.}
+    \end{subfigure}
+    \caption{Fitness curves for stochastic mutation probability.}
+\label{fig:stochastic_mutation}
+\end{figure}
+
+The evolution of the best individual for stochastic mutation probability is given in Figure \ref{fig:stochastic_mutation_image}.
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/images_outputSTOC_20_50_5_0.2_0.6_0.21864011617446064_guided.png}
+    \caption{Quantitative evolution of the best individual in the population for stochastic mutation probability.}
+    \label{fig:stochastic_mutation_image}
+\end{figure}
+
+Even though the results are not conclusive, the stochastic mutation probability can be a good idea to explore the search space more effectively by deviating around the mutation probability in each generation.
 
 \subsection{Dynamic Mutation Probability}
+Similarly, the mutation probability can be made dynamic. This means that the mutation probability can be changed based on the number of generations. This can help the algorithm to escape from local minima. Figure \ref{fig:dynamic_mutation} shows the fitness curves for the best individual when the mutation probability is dynamic. The mutation probability is decreased in each thousand generation.
 
-\subsection{Dynamic Mutation Type}
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/best_fitness_outputPROB_20_50_5_0.2_0.6_0.2_guided.png}
+        \caption{From first generation to 10000th generation.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/best_fitness_1000_outputPROB_20_50_5_0.2_0.6_0.2_guided.png}
+        \caption{From 1000th generation to 10000th generation.}
+    \end{subfigure}
+    \caption{Fitness curves for dynamic mutation probability.}
+\label{fig:dynamic_mutation}
+\end{figure}
+
+The evolution of the best individual for dynamic mutation probability is given in Figure \ref{fig:dynamic_mutation_image}.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/images_outputPROB_20_50_5_0.2_0.6_0.2_guided.png}
+    \caption{Quantitative evolution of the best individual in the population for dynamic mutation probability.}
+    \label{fig:dynamic_mutation_image}
+\end{figure}
+
+
+\subsection{Dynamic Elite/Parents Size}
+
+The family size can be made dynamic. This means that the family size can be changed based on the number of generations. This would help the algorithm to favor elites later in the generations. Figure \ref{fig:dynamic_family} shows the fitness curves for the best individual when the number of elites and number of parents are dynamic. The number of parents are decreased in each thousand generation while number of elites is increased.
+
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/best_fitness_outputFRAC_20_50_5_0.2_0.6_0.2_guided.png}
+        \caption{From first generation to 10000th generation.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/best_fitness_1000_outputFRAC_20_50_5_0.2_0.6_0.2_guided.png}
+        \caption{From 1000th generation to 10000th generation.}
+    \end{subfigure}
+    \caption{Fitness curves for dynamic family size.}
+\label{fig:dynamic_family}
+\end{figure}
+
+The evolution of the best individual for dynamic family size is given in Figure \ref{fig:dynamic_family_image}.
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/images_outputFRAC_20_50_5_0.2_0.6_0.2_guided.png}
+    \caption{Quantitative evolution of the best individual in the population for dynamic family size.}
+    \label{fig:dynamic_family_image}
+\end{figure}
+
+
 
 \section*{Appendix}
 The code set used throughout this homework is provided as follows. 
