@@ -14,6 +14,7 @@
 \usepackage{setspace}
 \onehalfspacing
 
+\usepackage{float}
 \usepackage{subcaption}
 \usepackage{listingsutf8}
 
@@ -82,7 +83,7 @@ The parameter set provided in Table \ref{tab:parameter_sweep} is used to perform
 Let us first start with the results of default parameter set provided in the homework description to be used as a baseline throughout the experiment. Figure \ref{fig:default} shows the plots associated with the fitness value of the best individual. The default parameter set is indicated as bold in Table \ref{tab:parameter_sweep}.
 
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \begin{subfigure}{0.5\textwidth}
         \includegraphics[width=\textwidth]{figures/best_fitness_output_20_50_5_0.2_0.6_0.2_guided.png}
         \caption{From first generation to 10000th generation.}
@@ -111,7 +112,7 @@ Let us first provide necessary plots for the parameter \textless{}num\_inds\text
 \subsubsection{5 Individuals}
 Figure \ref{fig:5inds} shows the plots associated with the fitness value of the best individual for 5 individuals.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \begin{subfigure}{0.5\textwidth}
         \includegraphics[width=\textwidth]{figures/best_fitness_output_5_50_5_0.2_0.6_0.2_guided.png}
         \caption{From first generation to 10000th generation.}
@@ -136,7 +137,7 @@ The Figure \ref{fig:5inds_image} shows the evolution of the best individual quan
 \subsubsection{10 Individuals}
 Figure \ref{fig:10inds} illustrates the plots associated with the fitness value of the best individual for 10 individuals.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \begin{subfigure}{0.5\textwidth}
         \includegraphics[width=\textwidth]{figures/best_fitness_output_10_50_5_0.2_0.6_0.2_guided.png}
         \caption{From first generation to 10000th generation.}
@@ -162,7 +163,7 @@ The Figure \ref{fig:10inds_image} shows the evolution of the best individual qua
 
 Figure \ref{fig:40inds} shows the plots associated with the fitness value of the best individual for 40 individuals.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \begin{subfigure}{0.5\textwidth}
         \includegraphics[width=\textwidth]{figures/best_fitness_output_40_50_5_0.2_0.6_0.2_guided.png}
         \caption{From first generation to 10000th generation.}
@@ -188,7 +189,7 @@ The Figure \ref{fig:40inds_image} indicates the evolution of the best individual
 
 Figure \ref{fig:60inds} shows the plots associated with the fitness value of the best individual for 60 individuals.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \begin{subfigure}{0.5\textwidth}
         \includegraphics[width=\textwidth]{figures/best_fitness_output_60_50_5_0.2_0.6_0.2_guided.png}
         \caption{From first generation to 10000th generation.}
@@ -217,7 +218,7 @@ Let us first provide necessary plots for the parameter \textless{}num\_genes\tex
 \subsubsection{15 Genes}
 Figure \ref{fig:15genes} shows the plots related to the fitness value of the best individual for 15 genes.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \begin{subfigure}{0.5\textwidth}
         \includegraphics[width=\textwidth]{figures/best_fitness_output_20_15_5_0.2_0.6_0.2_guided.png}
         \caption{From first generation to 10000th generation.}
@@ -242,7 +243,7 @@ The Figure \ref{fig:15genes_image} illustrates the evolution of the best individ
 \subsubsection{30 Genes}
 Figure \ref{fig:30genes} shows the plots related to the fitness value of the best individual for 30 genes.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \begin{subfigure}{0.5\textwidth}
         \includegraphics[width=\textwidth]{figures/best_fitness_output_20_30_5_0.2_0.6_0.2_guided.png}
         \caption{From first generation to 10000th generation.}
@@ -267,7 +268,7 @@ The Figure \ref{fig:30genes_image} shows the evolution of the best individual fi
 \subsubsection{80 Genes}
 Figure \ref{fig:80genes} shows the plots related to the fitness value of the best individual for 80 genes.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \begin{subfigure}{0.5\textwidth}
         \includegraphics[width=\textwidth]{figures/best_fitness_output_20_80_5_0.2_0.6_0.2_guided.png}
         \caption{From first generation to 10000th generation.}
@@ -292,7 +293,7 @@ The Figure \ref{fig:80genes_image} shows the evolution of the best individual fi
 \subsubsection{120 Genes}
 Figure \ref{fig:120genes} shows the plots related to the fitness value of the best individual for 120 genes.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \begin{subfigure}{0.5\textwidth}
         \includegraphics[width=\textwidth]{figures/best_fitness_output_20_120_5_0.2_0.6_0.2_guided.png}
         \caption{From first generation to 10000th generation.}
@@ -322,7 +323,7 @@ Let us first provide necessary plots for the parameter \textless{}tm\_size\textg
 \subsubsection{2 Tournament Size}
 Figure \ref{fig:2tm} shows the plots related to the fitness value of the best individual for 2 tournament size.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \begin{subfigure}{0.5\textwidth}
         \includegraphics[width=\textwidth]{figures/best_fitness_output_20_50_2_0.2_0.6_0.2_guided.png}
         \caption{From first generation to 10000th generation.}
@@ -347,7 +348,7 @@ The Figure \ref{fig:2tm_image} shows the evolution of the best individual figura
 \subsubsection{8 Tournament Size}
 Figure \ref{fig:8tm} shows the plots related to the fitness value of the best individual for 8 tournament size.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \begin{subfigure}{0.5\textwidth}
         \includegraphics[width=\textwidth]{figures/best_fitness_output_20_50_8_0.2_0.6_0.2_guided.png}
         \caption{From first generation to 10000th generation.}
@@ -372,7 +373,7 @@ The Figure \ref{fig:8tm_image} shows the evolution of the best individual figura
 \subsubsection{16 Tournament Size}
 Figure \ref{fig:16tm} shows the plots related to the fitness value of the best individual for 16 tournament size.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \begin{subfigure}{0.5\textwidth}
         \includegraphics[width=\textwidth]{figures/best_fitness_output_20_50_16_0.2_0.6_0.2_guided.png}
         \caption{From first generation to 10000th generation.}
@@ -394,16 +395,264 @@ The Figure \ref{fig:16tm_image} shows the evolution of the best individual figur
     \label{fig:16tm_image}
 \end{figure}
 
-\textbf{Discussion:} 
-
-
+\textbf{Discussion:} From the results we see that the best tournament size selection for this parameter space was 5. This means there are no linear relationship between the tournament size and the performance of the algorithm. As the tournament size increases too much the diversity decreased. It can be said that tournament size is a hyperparameter that needs to be tuned for the specific problem. If we change the other parameters such as number of individuals, number of genes, etc. the best tournament size would change.
 
 \subsection{Number of Individuals Advancing to Next Generation}
+Let us first provide necessary plots for the parameter \textless{}frac\_elites\textgreater{}.
+
+\subsubsection{0.04 Fraction of Elites}
+Figure \ref{fig:0.04elites} shows the plots related to the fitness value of the best individual for 0.04 fraction of elites.
+
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/best_fitness_output_20_50_5_0.04_0.6_0.2_guided.png}
+        \caption{From first generation to 10000th generation.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/best_fitness_1000_output_20_50_5_0.04_0.6_0.2_guided.png}
+        \caption{From 1000th generation to 10000th generation.}
+    \end{subfigure}
+    \caption{Fitness curves for 0.04 fraction of elites.}
+\label{fig:0.04elites}
+\end{figure}
+
+The Figure \ref{fig:0.04elites_image} shows the evolution of the best individual figuratively for 0.04 fraction of elites.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/images_output_20_50_5_0.04_0.6_0.2_guided.png}
+    \caption{Quantitative evolution of the best individual in the population for 0.04 fraction of elites.}
+    \label{fig:0.04elites_image}
+\end{figure}
+
+\subsubsection{0.35 Fraction of Elites}
+
+Figure \ref{fig:0.35elites} shows the plots related to the fitness value of the best individual for 0.35 fraction of elites.
+
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/best_fitness_output_20_50_5_0.35_0.6_0.2_guided.png}
+        \caption{From first generation to 10000th generation.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/best_fitness_1000_output_20_50_5_0.35_0.6_0.2_guided.png}
+        \caption{From 1000th generation to 10000th generation.}
+    \end{subfigure}
+    \caption{Fitness curves for 0.35 fraction of elites.}
+\label{fig:0.35elites}
+\end{figure}
+
+The Figure \ref{fig:0.35elites_image} shows the evolution of the best individual figuratively for 0.35 fraction of elites.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/images_output_20_50_5_0.35_0.6_0.2_guided.png}
+    \caption{Quantitative evolution of the best individual in the population for 0.35 fraction of elites.}
+    \label{fig:0.35elites_image}
+\end{figure}
+
+\textbf{Discussion:} The results indicates that the best selection for the fraction of elites is 0.04. We may interpret this as the algorithm needs more diversity in the population to converge to a better solution. On the other hand this implied follows, as the number of elites decreases the parents selected are shifts to a better group of individuals. So, it is hard to tell the number of elites is decoupled from the other parameters. If we select parents first from the best individuals and then from the rest of the population, the best fraction of elites would change.
+
 \subsection{Number of Parents Used In Crossover}
+
+Let us first provide necessary plots for the parameter \textless{}frac\_parents\textgreater{}.
+
+\subsubsection{0.15 Fraction of Parents}
+The plots about to the fitness metric of the best individual for 0.15 fraction of parents in Figure \ref{fig:0.15parents}.
+
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/best_fitness_output_20_50_5_0.2_0.15_0.2_guided.png}
+        \caption{From first generation to 10000th generation.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/best_fitness_1000_output_20_50_5_0.2_0.15_0.2_guided.png}
+        \caption{From 1000th generation to 10000th generation.}
+    \end{subfigure}
+    \caption{Fitness curves for 0.15 fraction of parents.}
+\label{fig:0.15parents}
+\end{figure}
+
+The evolution of the best individual for 0.15 fraction of parents is given in Figure \ref{fig:0.15parents_image}.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/images_output_20_50_5_0.2_0.15_0.2_guided.png}
+    \caption{Quantitative evolution of the best individual in the population for 0.15 fraction of parents.}
+    \label{fig:0.15parents_image}
+\end{figure}
+
+\subsubsection{0.3 Fraction of Parents}
+
+The plots about to the fitness metric of the best individual for 0.3 fraction of parents in Figure \ref{fig:0.3parents}.
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/best_fitness_output_20_50_5_0.2_0.3_0.2_guided.png}
+        \caption{From first generation to 10000th generation.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/best_fitness_1000_output_20_50_5_0.2_0.3_0.2_guided.png}
+        \caption{From 1000th generation to 10000th generation.}
+    \end{subfigure}
+    \caption{Fitness curves for 0.3 fraction of parents.}
+\label{fig:0.3parents}
+\end{figure}
+
+The evolution of the best individual for 0.3 fraction of parents is given in Figure \ref{fig:0.3parents_image}.
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/images_output_20_50_5_0.2_0.3_0.2_guided.png}
+    \caption{Quantitative evolution of the best individual in the population for 0.3 fraction of parents.}
+    \label{fig:0.3parents_image}
+\end{figure}
+
+\subsubsection{0.75 Fraction of Parents}
+
+The plots about to the fitness metric of the best individual for 0.75 fraction of parents in Figure \ref{fig:0.75parents}.
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/best_fitness_output_20_50_5_0.2_0.75_0.2_guided.png}
+        \caption{From first generation to 10000th generation.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/best_fitness_1000_output_20_50_5_0.2_0.75_0.2_guided.png}
+        \caption{From 1000th generation to 10000th generation.}
+    \end{subfigure}
+    \caption{Fitness curves for 0.75 fraction of parents.}
+\label{fig:0.75parents}
+\end{figure}
+
+The evolution of the best individual for 0.75 fraction of parents is given in Figure \ref{fig:0.75parents_image}.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/images_output_20_50_5_0.2_0.75_0.2_guided.png}
+    \caption{Quantitative evolution of the best individual in the population for 0.75 fraction of parents.}
+    \label{fig:0.75parents_image}
+\end{figure}
+
+\textbf{Discussion:} The results show that the best selection for the fraction of parents is 0.6. This means that the algorithm needs to select parents from a wide range of individuals to converge to a better solution. This is because the diversity in the population is important for the algorithm to explore more possibilities. If the algorithm selects parents from a small group of individuals, the algorithm may converge to a local minimum. On the other hand for the case of 0.75 fraction of parents, we see that increasing the fraction of parents did not help. We may interpret this result as the algorithm needs to select parents from a wide range of individuals but not from the whole population.
+
+
 \subsection{Mutation Probability}
+Let us first provide necessary plots for the parameter \textless{}mutation\_prob\textgreater{}.
+
+\subsubsection{0.1 Mutation Probability}
+The plots about to the fitness metric of the best individual for 0.1 mutation probability in Figure \ref{fig:0.1mutation}.
+
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/best_fitness_output_20_50_5_0.2_0.6_0.1_guided.png}
+        \caption{From first generation to 10000th generation.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/best_fitness_1000_output_20_50_5_0.2_0.6_0.1_guided.png}
+        \caption{From 1000th generation to 10000th generation.}
+    \end{subfigure}
+    \caption{Fitness curves for 0.1 mutation probability.}
+\label{fig:0.1mutation}
+\end{figure}
+
+The evolution of the best individual for 0.1 mutation probability is given in Figure \ref{fig:0.1mutation_image}.
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/images_output_20_50_5_0.2_0.6_0.1_guided.png}
+    \caption{Quantitative evolution of the best individual in the population for 0.1 mutation probability.}
+    \label{fig:0.1mutation_image}
+\end{figure}
+
+\subsubsection{0.4 Mutation Probability}
+The plots about to the fitness metric of the best individual for 0.4 mutation probability in Figure \ref{fig:0.4mutation}.
+
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/best_fitness_output_20_50_5_0.2_0.6_0.4_guided.png}
+        \caption{From first generation to 10000th generation.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/best_fitness_1000_output_20_50_5_0.2_0.6_0.4_guided.png}
+        \caption{From 1000th generation to 10000th generation.}
+    \end{subfigure}
+    \caption{Fitness curves for 0.4 mutation probability.}
+\label{fig:0.4mutation}
+\end{figure}
+
+The evolution of the best individual for 0.4 mutation probability is given in Figure \ref{fig:0.4mutation_image}.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/images_output_20_50_5_0.2_0.6_0.4_guided.png}
+    \caption{Quantitative evolution of the best individual in the population for 0.4 mutation probability.}
+    \label{fig:0.4mutation_image}
+\end{figure}
+
+\subsubsection{0.75 Mutation Probability}
+
+The plots about to the fitness metric of the best individual for 0.75 mutation probability in Figure \ref{fig:0.75mutation}.
+
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/best_fitness_output_20_50_5_0.2_0.6_0.75_guided.png}
+        \caption{From first generation to 10000th generation.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/best_fitness_1000_output_20_50_5_0.2_0.6_0.75_guided.png}
+        \caption{From 1000th generation to 10000th generation.}
+    \end{subfigure}
+    \caption{Fitness curves for 0.75 mutation probability.}
+\label{fig:0.75mutation}
+\end{figure}
+
+The evolution of the best individual for 0.75 mutation probability is given in Figure \ref{fig:0.75mutation_image}.
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/images_output_20_50_5_0.2_0.6_0.75_guided.png}
+    \caption{Quantitative evolution of the best individual in the population for 0.75 mutation probability.}
+    \label{fig:0.75mutation_image}
+\end{figure}
+
+\textbf{Discussion:} The results show that the best selection for the mutation probability is 0.2. This tells us two things. First, if the mutation probability is too low, the algorithm may not be able to explore the search space effectively. Second, if the mutation probability is too high, the algorithm may not be able to converge to a better solution. This is because if the mutation probability is too high, the algorithm may not be able to preserve the good genes in the population. So, the mutation probability is a hyperparameter that needs to be tuned for the specific problem.
+
 \subsection{Mutation Type}
 
-\section{Discussion}
+Let us first provide necessary plots for the parameter \textless{}mutation\_type\textgreater{}.
+
+\subsubsection{Unguided Mutation}
+The plots about to the fitness metric of the best individual for unguided mutation in Figure \ref{fig:unguided}.
+
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/best_fitness_output_20_50_5_0.2_0.6_0.2_unguided.png}
+        \caption{From first generation to 10000th generation.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/best_fitness_1000_output_20_50_5_0.2_0.6_0.2_unguided.png}
+        \caption{From 1000th generation to 10000th generation.}
+    \end{subfigure}
+    \caption{Fitness curves for unguided mutation.}
+\label{fig:unguided}
+\end{figure}
+
+The evolution of the best individual for unguided mutation is given in Figure \ref{fig:unguided_image}.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/images_output_20_50_5_0.2_0.6_0.2_unguided.png}
+    \caption{Quantitative evolution of the best individual in the population for unguided mutation.}
+    \label{fig:unguided_image}
+\end{figure}
+
+\textbf{Discussion:} It is quite obvious that if the mutation is unguided, the algorithm cannot converge to a better solution. This is because the mutation become reinitialization of the gene. So, the mutation loses its evolutionary meaning.
+
+\section{Discussion - Suggestions}
+
+There are three suggestions, based on our observations and results, that can be made to improve the performance of the algorithm.
+
+\subsection{Search Space Narrowing}
+
+\subsection{Dynamic Mutation Probability}
+
+\subsection{Dynamic Mutation Type}
 
 \section*{Appendix}
 The code set used throughout this homework is provided as follows. 
