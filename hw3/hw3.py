@@ -39,15 +39,18 @@ class MazeEnvironment:
         elif np.random.uniform(0, 1) <= 0.05:  # Probability of going opposite of the chosen direction
             dx, dy = tuple([-1*x for x in self.actions[action]])
         elif np.random.uniform(0, 1) <= 0.10:  # Probability of going each of perpendicular routes
-            dx, dy = self.actions[np.random.choice(list(self.actions.keys()))]
+            dy, dx = self.actions[action] # Swap the x and y coordinates
         else:
             dx, dy = self.actions[action]
 
         new_x, new_y = self.current_pos[0] + dx, self.current_pos[1] + dy
 
         # Check if the new position is valid
-        if 0 <= new_x < self.maze.shape[0] and 0 <= new_y < self.maze.shape[1] and self.maze[new_x, new_y] != 1:
+        if (0 <= new_x < self.maze.shape[0]) and (0 <= new_y < self.maze.shape[1]) and (self.maze[new_x, new_y] != 1):
             self.current_pos = (new_x, new_y)
+        else: # If the new position is invalid, stay in the current position
+            self.current_pos = self.current_pos
+
 
         # Determine reward based on new position
         if self.maze[self.current_pos] == 2:
@@ -60,19 +63,6 @@ class MazeEnvironment:
         return self.current_pos, reward
 
     
-
-    # create an arbitrary value function
-    def create_value_function(self):
-        # Initialize the value function
-        value_function = np.zeros(self.maze.shape)
-
-        return value_function
-    
-
-# plot a value function
-maze = MazeEnvironment()
-value_function = maze.create_value_function()
-plot_value_function(value_function, maze.maze)
 
 
 
@@ -104,17 +94,20 @@ class MazeTD0(MazeEnvironment): # Inherited from MazeEnvironment
     def run_episodes(self):
         for _ in tqdm(range(self.episodes)):
             current_state = self.maze.current_pos
-            while True:
-                action = self.choose_action(current_state)
-                new_state, reward  = self.maze.step(action)
-                self.update_utility_value(current_state, reward, new_state)
-                current_state = new_state
-                print(current_state)
-                if self.maze.maze[current_state] == 3:
-                    break
+        
+            action = self.choose_action(current_state)
+            new_state, reward  = self.maze.step(action)
+            self.update_utility_value(current_state, reward, new_state)
+            current_state = new_state
+            print(current_state)
+            if self.maze.maze[current_state] == 3:
+                break
         return self.utility
 
 # Create an instance of the Maze with TD(0) and run multiple episodes
 maze = MazeEnvironment()
 maze_td0 = MazeTD0(maze, alpha=0.1, gamma=0.95, epsilon=0.5, episodes=10000)
 final_values = maze_td0.run_episodes()
+
+print(final_values)
+plot_value_function(final_values, maze.maze)
