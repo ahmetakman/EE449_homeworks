@@ -74,7 +74,7 @@ class MazeTD0(MazeEnvironment): # Inherited from MazeEnvironment
         self.gamma = gamma # Discount factor
         self.epsilon = epsilon # Exploration Rate
         self.episodes = episodes
-        self.utility = {} # Utility values for states
+        self.utility = 1*np.ones((12,12)) - np.pad(maze.maze, [(0, 1), (0, 1)], mode='constant') # Utility values for states
         self.valid_actions = list(maze.actions.keys())
     
     def choose_action(self, state):
@@ -83,13 +83,13 @@ class MazeTD0(MazeEnvironment): # Inherited from MazeEnvironment
             return random.choice(self.valid_actions)
         else:
             # Exploit: Choose the best action based on current utility values
-            return max(self.valid_actions, key=lambda a: self.utility.get((state, a), 0))
+            return np.argmax([self.utility[state[0] + dx, state[1] + dy] for dx, dy in self.maze.actions.values()])
 
     def update_utility_value(self, current_state, reward, new_state):
-        current_value = self.utility.get((current_state, None), 0)
-        new_value = max(self.utility.get((new_state, a), 0) for a in self.valid_actions)
+        current_value = self.utility[current_state[0], current_state[1]]
+        new_value = self.utility[new_state[0], new_state[1]]
         td_target = reward + self.gamma * new_value
-        self.utility[(current_state, None)] = current_value + self.alpha * (td_target - current_value)
+        self.utility[current_state[0], current_state[1]] = current_value + self.alpha * (td_target - current_value)
 
     def run_episodes(self):
         for _ in tqdm(range(self.episodes)):
@@ -106,8 +106,9 @@ class MazeTD0(MazeEnvironment): # Inherited from MazeEnvironment
 
 # Create an instance of the Maze with TD(0) and run multiple episodes
 maze = MazeEnvironment()
-maze_td0 = MazeTD0(maze, alpha=0.1, gamma=0.95, epsilon=0.5, episodes=10000)
+maze_td0 = MazeTD0(maze, alpha=0.1, gamma=0.95, epsilon=0.6, episodes=10000)
 final_values = maze_td0.run_episodes()
-
+final_values = final_values[0:11, 0:11]
 print(final_values)
 plot_value_function(final_values, maze.maze)
+plot_policy(final_values, maze.maze)
