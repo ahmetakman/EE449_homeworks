@@ -65,6 +65,7 @@ class MazeEnvironment:
             self.current_pos = (new_x, new_y)
         else:  # If the new position is invalid, stay in the current position
             self.current_pos = self.current_pos
+            return self.current_pos, self.state_penalty
 
         # Determine reward based on new position
         if self.maze[self.current_pos] == 2:
@@ -85,9 +86,9 @@ class MazeTD0(MazeEnvironment):  # Inherited from MazeEnvironment
         self.gamma = gamma  # Discount factor
         self.epsilon = epsilon  # Exploration Rate
         self.episodes = episodes
-        self.utility =  -21*np.ones((12,12)) #- 30 * np.pad(maze.maze, [(0, 1), (0, 1)], mode='constant') # Utility values for states
+        self.utility =  5*np.ones((12,12)) #- 30 * np.pad(maze.maze, [(0, 1), (0, 1)], mode='constant') # Utility values for states
         # self.utility[np.where(maze.maze == 3)] = 10000
-        # self.utility[np.where(maze.maze == 2)] = -30
+        self.utility[np.where(maze.maze == 1)] = -1000
         self.valid_actions = list(maze.actions.keys())
 
     def choose_action(self, state):
@@ -131,7 +132,7 @@ class MazeTD0(MazeEnvironment):  # Inherited from MazeEnvironment
 
 # Create an instance of the Maze with TD(0) and run multiple episodes
 maze = MazeEnvironment()
-maze_td0 = MazeTD0(maze, alpha=0.1, gamma=0.95, epsilon=0.5, episodes=10000)
+maze_td0 = MazeTD0(maze, alpha=0.1, gamma=0.95, epsilon=0.3, episodes=10000)
 final_values = maze_td0.run_episodes()
 print(final_values)
 final_values = final_values[0:11, 0:11]
