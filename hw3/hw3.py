@@ -139,3 +139,36 @@ final_values = final_values[0:11, 0:11]
 
 plot_value_function(final_values, maze.maze)
 plot_policy(final_values, maze.maze)
+
+"""
+In this part, you will implement the Q Learning algorithm to directly learn an optimal policy. For this,
+you will initialize the Q values (state-action pair values) arbitrarily, implement the Q Learning update
+rule and use an ε-greedy strategy to improve exploration and exploitation balance
+"""
+
+
+class MazeQLearning(MazeEnvironment): # Inherited from MazeEnvironment
+    def __init__(self, maze, alpha=0.1, gamma=0.95, epsilon=0.2, episodes=10000):
+        super().__init__()
+        self.maze = maze
+        self.alpha = alpha #Learning Rate
+        self.gamma = gamma #Discount factor
+        self.epsilon = epsilon #Exploration Rate
+        self.episodes = episodes
+        self.q_table = #FILL HERE, Initialize Q-table
+    def choose_action(self, state):
+        #Explore and Exploit
+        #FILL HERE
+    def update_q_table(self, action, current_state, reward, new_state):
+        current_q = #FILL HERE
+        max_future_q = #FILL HERE
+        new_q = #FILL HERE
+        self.q_table[state[0], state[1], action] = #FILL HERE
+    def run_episodes(self):
+        #FILL HERE
+
+
+
+maze = #FILL HERE, Use 0 = free space, 1 = obstacle, 2 = goal
+maze_q_learning = MazeQLearning(self, maze, alpha=0.1, gamma=0.95, epsilon=0.2, episodes=10000)
+maze_q_learning.run_episodes()
