@@ -65,6 +65,7 @@ class MazeEnvironment:
             self.current_pos = (new_x, new_y)
         else:  # If the new position is invalid, stay in the current position
             self.current_pos = self.current_pos
+
             return self.current_pos, self.state_penalty
 
         # Determine reward based on new position
@@ -130,15 +131,15 @@ class MazeTD0(MazeEnvironment):  # Inherited from MazeEnvironment
         return self.utility
 
 
-# Create an instance of the Maze with TD(0) and run multiple episodes
-maze = MazeEnvironment()
-maze_td0 = MazeTD0(maze, alpha=0.1, gamma=0.95, epsilon=0.3, episodes=10000)
-final_values = maze_td0.run_episodes()
-print(final_values)
-final_values = final_values[0:11, 0:11]
+# # Create an instance of the Maze with TD(0) and run multiple episodes
+# maze = MazeEnvironment()
+# maze_td0 = MazeTD0(maze, alpha=0.1, gamma=0.95, epsilon=0.3, episodes=10000)
+# final_values = maze_td0.run_episodes()
+# print(final_values)
+# final_values = final_values[0:11, 0:11]
 
-plot_value_function(final_values, maze.maze)
-plot_policy(final_values, maze.maze)
+# plot_value_function(final_values, maze.maze)
+# plot_policy(final_values, maze.maze)
 
 """
 In this part, you will implement the Q Learning algorithm to directly learn an optimal policy. For this,
@@ -146,29 +147,45 @@ you will initialize the Q values (state-action pair values) arbitrarily, impleme
 rule and use an ε-greedy strategy to improve exploration and exploitation balance
 """
 
-
-class MazeQLearning(MazeEnvironment): # Inherited from MazeEnvironment
+class MazeQLearning(MazeEnvironment):  # Inherited from MazeEnvironment
     def __init__(self, maze, alpha=0.1, gamma=0.95, epsilon=0.2, episodes=10000):
         super().__init__()
         self.maze = maze
-        self.alpha = alpha #Learning Rate
-        self.gamma = gamma #Discount factor
-        self.epsilon = epsilon #Exploration Rate
+        self.alpha = alpha  # Learning Rate
+        self.gamma = gamma  # Discount factor
+        self.epsilon = epsilon  # Exploration Rate
         self.episodes = episodes
-        self.q_table = #FILL HERE, Initialize Q-table
+        self.q_table = np.zeros((maze.maze.shape[0], maze.maze.shape[1], 4))  # Initialize Q-table
+
     def choose_action(self, state):
-        #Explore and Exploit
-        #FILL HERE
+        if random.uniform(0, 1) < self.epsilon:  # Explore
+            return random.choice(self.maze.actions)
+        else:  # Exploit
+            state_q_values = self.q_table[state[0], state[1], :]
+            return np.argmax(state_q_values)
+
     def update_q_table(self, action, current_state, reward, new_state):
-        current_q = #FILL HERE
-        max_future_q = #FILL HERE
-        new_q = #FILL HERE
-        self.q_table[state[0], state[1], action] = #FILL HERE
+        current_q = self.q_table[current_state[0], current_state[1], action]
+        max_future_q = np.max(self.q_table[new_state[0], new_state[1], :])
+        new_q = current_q + self.alpha * (reward + self.gamma * max_future_q - current_q)
+        self.q_table[current_state[0], current_state[1], action] = new_q
+
     def run_episodes(self):
-        #FILL HERE
+        for episode in range(self.episodes):
+            state = self.maze.reset()  # Assuming reset initializes and returns the start state
+
+            while True:
+                action = self.choose_action(state)
+                new_state, reward = self.step(action)  # Assuming step executes action and returns new_state, reward, and done
+
+                self.update_q_table(action, state, reward, new_state)
+                state = new_state
+
+                if self.maze.maze[state] == 3 or self.maze.maze[state] == 2:
+                        break
 
 
-
-maze = #FILL HERE, Use 0 = free space, 1 = obstacle, 2 = goal
-maze_q_learning = MazeQLearning(self, maze, alpha=0.1, gamma=0.95, epsilon=0.2, episodes=10000)
+maze = MazeEnvironment()# Use 0 = free space, 1 = obstacle, 2 = goal
+maze_q_learning = MazeQLearning(maze, alpha=0.1, gamma=0.95, epsilon=0.2, episodes=10000)
 maze_q_learning.run_episodes()
+
