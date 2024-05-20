@@ -156,10 +156,11 @@ class MazeQLearning(MazeEnvironment):  # Inherited from MazeEnvironment
         self.epsilon = epsilon  # Exploration Rate
         self.episodes = episodes
         self.q_table = np.zeros((maze.maze.shape[0], maze.maze.shape[1], 4))  # Initialize Q-table
+        self.valid_actions = list(maze.actions.keys())
 
     def choose_action(self, state):
         if random.uniform(0, 1) < self.epsilon:  # Explore
-            return random.choice(self.maze.actions)
+            return random.choice(self.valid_actions)
         else:  # Exploit
             state_q_values = self.q_table[state[0], state[1], :]
             return np.argmax(state_q_values)
@@ -171,12 +172,12 @@ class MazeQLearning(MazeEnvironment):  # Inherited from MazeEnvironment
         self.q_table[current_state[0], current_state[1], action] = new_q
 
     def run_episodes(self):
-        for episode in range(self.episodes):
+        for episode in tqdm(range(self.episodes)):
             state = self.maze.reset()  # Assuming reset initializes and returns the start state
 
             while True:
                 action = self.choose_action(state)
-                new_state, reward = self.step(action)  # Assuming step executes action and returns new_state, reward, and done
+                new_state, reward = self.maze.step(action)  # Assuming step executes action and returns new_state, reward, and done
 
                 self.update_q_table(action, state, reward, new_state)
                 state = new_state
@@ -184,8 +185,13 @@ class MazeQLearning(MazeEnvironment):  # Inherited from MazeEnvironment
                 if self.maze.maze[state] == 3 or self.maze.maze[state] == 2:
                         break
 
-
+        return self.q_table
 maze = MazeEnvironment()# Use 0 = free space, 1 = obstacle, 2 = goal
 maze_q_learning = MazeQLearning(maze, alpha=0.1, gamma=0.95, epsilon=0.2, episodes=10000)
-maze_q_learning.run_episodes()
+q_table = maze_q_learning.run_episodes()
 
+# convert q_table to value function
+value_function = np.max(q_table, axis=2)
+
+plot_value_function(value_function, maze.maze)
+plot_policy(value_function, maze.maze)
