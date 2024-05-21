@@ -93,7 +93,9 @@ class MazeTD0(MazeEnvironment):  # Inherited from MazeEnvironment
         self.utility[:,11] = -1000
         self.valid_actions = list(maze.actions.keys())
         
+        self.convergence_data = []
         self.episodes_to_plot = [1, 50, 100, 1000, 5000, 10000]
+        self.previous_values = np.zeros((11, 11))
     def choose_action(self, state):
         if random.random() < self.epsilon:
             # Explore: Randomly choose an action
@@ -115,7 +117,7 @@ class MazeTD0(MazeEnvironment):  # Inherited from MazeEnvironment
     
     # for TD learning
     def value_function_from_utility(self):
-        utility_values = self.utility[0:11, 0:11]
+        utility_values = self.utility[0:11, 0:11].copy()
         # update value function of the target
         utility_values[np.where(self.maze.maze == 3)] = 3000
         return utility_values
@@ -135,25 +137,29 @@ class MazeTD0(MazeEnvironment):  # Inherited from MazeEnvironment
                 # print(current_state)
                 if self.maze.maze[current_state] == 3 or self.maze.maze[current_state] == 2:
                     break
-                
-            if (episode+1) in self.episodes_to_plot:
-                utility_vals = self.value_function_from_utility()
-                plot_value_function(utility_vals, self.maze.maze)
 
+            utility_vals = self.value_function_from_utility()
+
+            self.convergence_data.append(np.sum(np.abs(np.subtract(utility_vals, self.previous_values))))
+            self.previous_value = utility_vals
+
+            if (episode+1) in self.episodes_to_plot:
+                plot_value_function(utility_vals, self.maze.maze)
+        # plot the convergence data
+        plt.figure()
+        plt.plot(self.convergence_data)
+        plt.xlabel("episodes")
+        plt.ylabel("sum of absolute differences")
+        plt.title("Convergence over episodes")
+        plt.grid()
+        plt.show()
         return self.utility
 
 
 # Create an instance of the Maze with TD(0) and run multiple episodes
-# maze = MazeEnvironment()
-# maze_td0 = MazeTD0(maze, alpha=0.1, gamma=0.95, epsilon=0.2, episodes=10000)
-# final_values = maze_td0.run_episodes()
-# print(final_values)
-# final_values = final_values[0:11, 0:11]
-# # update value function of the target
-# final_values[np.where(maze.maze == 3)] = 3000
-
-# plot_value_function(final_values, maze.maze)
-# plot_policy(final_values, maze.maze)
+maze = MazeEnvironment()
+maze_td0 = MazeTD0(maze, alpha=0.1, gamma=0.95, epsilon=0.2, episodes=10000)
+final_values = maze_td0.run_episodes()
 
 ############ Q Learning ###################
 
@@ -167,8 +173,11 @@ class MazeQLearning(MazeEnvironment):  # Inherited from MazeEnvironment
         self.episodes = episodes
         self.q_table = np.zeros((maze.maze.shape[0], maze.maze.shape[1], 4))  # Initialize Q-table
         self.valid_actions = list(maze.actions.keys())
-        self.episodes_to_plot = [1, 50, 100, 1000, 5000, 10000]
 
+        self.convergence_data = []
+        self.previous_values = np.zeros((11, 11))
+        self.episodes_to_plot = [1, 50, 100, 1000, 5000, 10000]
+        
     def choose_action(self, state):
         if random.uniform(0, 1) < self.epsilon:  # Explore
             return random.choice(self.valid_actions)
@@ -186,7 +195,7 @@ class MazeQLearning(MazeEnvironment):  # Inherited from MazeEnvironment
     # for Q-learning output
     def value_function_from_q_table(self):
         # convert q_table to value function
-        value_function = np.max(self.q_table, axis=2)
+        value_function = np.max(self.q_table.copy(), axis=2)
         # make the invalid moves -1000 in value function
         value_function[np.where(self.maze.maze == 1)] = -1000
         value_function[np.where(self.maze.maze == 3)] =  3000
@@ -205,21 +214,28 @@ class MazeQLearning(MazeEnvironment):  # Inherited from MazeEnvironment
 
                 if self.maze.maze[state] == 3 or self.maze.maze[state] == 2:
                         break
+                
+            utility_vals = self.value_function_from_q_table()
+
+            self.convergence_data.append(np.sum(np.abs(np.subtract(utility_vals, self.previous_values))))
+            self.previous_value = utility_vals
+
             if (episode+1) in self.episodes_to_plot:
-                utility_vals = self.value_function_from_q_table()
                 plot_value_function(utility_vals, self.maze.maze)
+        # plot the convergence data
+        plt.figure()
+        plt.plot(self.convergence_data)
+        plt.xlabel("episodes")
+        plt.ylabel("sum of absolute differences")
+        plt.title("Convergence over episodes")
+        plt.grid()
+        plt.show()
         return self.q_table
 
 
 maze = MazeEnvironment()# Use 0 = free space, 1 = obstacle, 2 = goal
 maze_q_learning = MazeQLearning(maze, alpha=0.1, gamma=0.95, epsilon=0.2, episodes=10000)
 q_table = maze_q_learning.run_episodes()
-
-# # convert q_table to value function
-# value_function = np.max(q_table, axis=2)
-# # make the invalid moves -1000 in value function
-# value_function[np.where(maze.maze == 1)] = -1000
-# value_function[np.where(maze.maze == 3)] =  3000
 
 
 # plot_value_function(value_function, maze.maze)
