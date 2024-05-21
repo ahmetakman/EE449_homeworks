@@ -168,7 +168,7 @@ class MazeTD0(MazeEnvironment):  # Inherited from MazeEnvironment
 maze = MazeEnvironment()
 maze_td0 = MazeTD0(maze, alpha=0.1, gamma=0.95, epsilon=0.2, episodes=10000)
 final_values = maze_td0.run_episodes()
-
+plot_policy(maze_td0.value_function_from_utility(), maze.maze)
 ############ Q Learning ###################
 
 class MazeQLearning(MazeEnvironment):  # Inherited from MazeEnvironment
@@ -244,7 +244,7 @@ class MazeQLearning(MazeEnvironment):  # Inherited from MazeEnvironment
 maze = MazeEnvironment()# Use 0 = free space, 1 = obstacle, 2 = goal
 maze_q_learning = MazeQLearning(maze, alpha=0.1, gamma=0.95, epsilon=0.2, episodes=10000)
 q_table = maze_q_learning.run_episodes()
-
+plot_policy(maze_q_learning.value_function_from_q_table(), maze.maze)
 
 # plot_value_function(value_function, maze.maze)
 # plot_policy(value_function, maze.maze)
