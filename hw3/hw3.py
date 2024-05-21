@@ -154,13 +154,13 @@ class MazeTD0(MazeEnvironment):  # Inherited from MazeEnvironment
         plt.grid()
         plt.show()
         # smoothed version of it
-        # plt.figure()
-        # plt.plot(np.convolve(np.array(self.convergence_data[1:]),np.array([0.1, 0.1, 0.1, 0.1, 0.1]), "same"))
-        # plt.xlabel("episodes")
-        # plt.ylabel("sum of absolute differences")
-        # plt.title("Convergence over episodes")
-        # plt.grid()
-        # plt.show()
+        plt.figure()
+        plt.plot(np.convolve(self.convergence_data[1:], np.ones(100)/100, mode='valid'))
+        plt.xlabel("episodes")
+        plt.ylabel("sum of absolute differences")
+        plt.title("Convergence over episodes")
+        plt.grid()
+        plt.show()
         return self.utility
 
 
@@ -233,6 +233,14 @@ class MazeQLearning(MazeEnvironment):  # Inherited from MazeEnvironment
         # plot the convergence data
         plt.figure()
         plt.plot(self.convergence_data[1:])
+        plt.xlabel("episodes")
+        plt.ylabel("sum of absolute differences")
+        plt.title("Convergence over episodes")
+        plt.grid()
+        plt.show()
+        # smoothed version of it
+        plt.figure()
+        plt.plot(np.convolve(self.convergence_data[1:], np.ones(100)/100, mode='valid'))
         plt.xlabel("episodes")
         plt.ylabel("sum of absolute differences")
         plt.title("Convergence over episodes")
