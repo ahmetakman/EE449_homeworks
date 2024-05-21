@@ -87,9 +87,11 @@ class MazeTD0(MazeEnvironment):  # Inherited from MazeEnvironment
         self.gamma = gamma  # Discount factor
         self.epsilon = epsilon  # Exploration Rate
         self.episodes = episodes
-        self.utility =  5*np.ones((12,12)) #- 30 * np.pad(maze.maze, [(0, 1), (0, 1)], mode='constant') # Utility values for states
+        self.utility =  np.ones((12,12)) #- 30 * np.pad(maze.maze, [(0, 1), (0, 1)], mode='constant') # Utility values for states
         # self.utility[np.where(maze.maze == 3)] = 10000
         self.utility[np.where(maze.maze == 1)] = -1000
+        self.utility[11,:] = -1000
+        self.utility[:,11] = -1000
         self.valid_actions = list(maze.actions.keys())
 
     def choose_action(self, state):
@@ -131,15 +133,15 @@ class MazeTD0(MazeEnvironment):  # Inherited from MazeEnvironment
         return self.utility
 
 
-# # Create an instance of the Maze with TD(0) and run multiple episodes
-# maze = MazeEnvironment()
-# maze_td0 = MazeTD0(maze, alpha=0.1, gamma=0.95, epsilon=0.3, episodes=10000)
-# final_values = maze_td0.run_episodes()
-# print(final_values)
-# final_values = final_values[0:11, 0:11]
+# Create an instance of the Maze with TD(0) and run multiple episodes
+maze = MazeEnvironment()
+maze_td0 = MazeTD0(maze, alpha=0.1, gamma=0.95, epsilon=0.3, episodes=10000)
+final_values = maze_td0.run_episodes()
+print(final_values)
+final_values = final_values[0:11, 0:11]
 
-# plot_value_function(final_values, maze.maze)
-# plot_policy(final_values, maze.maze)
+plot_value_function(final_values, maze.maze)
+plot_policy(final_values, maze.maze)
 
 """
 In this part, you will implement the Q Learning algorithm to directly learn an optimal policy. For this,
