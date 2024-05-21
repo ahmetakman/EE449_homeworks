@@ -87,13 +87,13 @@ class MazeTD0(MazeEnvironment):  # Inherited from MazeEnvironment
         self.gamma = gamma  # Discount factor
         self.epsilon = epsilon  # Exploration Rate
         self.episodes = episodes
-        self.utility =  np.ones((12,12)) #- 30 * np.pad(maze.maze, [(0, 1), (0, 1)], mode='constant') # Utility values for states
-        # self.utility[np.where(maze.maze == 3)] = 10000
+        self.utility =  np.ones((12,12)) 
         self.utility[np.where(maze.maze == 1)] = -1000
         self.utility[11,:] = -1000
         self.utility[:,11] = -1000
         self.valid_actions = list(maze.actions.keys())
-
+        
+        self.episodes_to_plot = [1, 50, 100, 1000, 5000, 10000]
     def choose_action(self, state):
         if random.random() < self.epsilon:
             # Explore: Randomly choose an action
@@ -112,10 +112,17 @@ class MazeTD0(MazeEnvironment):  # Inherited from MazeEnvironment
         new_value = self.utility[new_state[0], new_state[1]]
         td_target = reward + self.gamma * new_value
         self.utility[current_state[0], current_state[1]] = current_value + self.alpha * (td_target - current_value)
-        
+    
+    # for TD learning
+    def value_function_from_utility(self):
+        utility_values = self.utility[0:11, 0:11]
+        # update value function of the target
+        utility_values[np.where(self.maze.maze == 3)] = 3000
+        return utility_values
+       
 
     def run_episodes(self):
-        for _ in tqdm(range(self.episodes)):
+        for episode in tqdm(range(self.episodes)):
             self.maze.reset()
 
             while True:
@@ -128,26 +135,27 @@ class MazeTD0(MazeEnvironment):  # Inherited from MazeEnvironment
                 # print(current_state)
                 if self.maze.maze[current_state] == 3 or self.maze.maze[current_state] == 2:
                     break
-            if _ % 1000 == 0:
-                plot_value_function(self.utility[0:11, 0:11], self.maze.maze)
+                
+            if (episode+1) in self.episodes_to_plot:
+                utility_vals = self.value_function_from_utility()
+                plot_value_function(utility_vals, self.maze.maze)
+
         return self.utility
 
 
 # Create an instance of the Maze with TD(0) and run multiple episodes
-maze = MazeEnvironment()
-maze_td0 = MazeTD0(maze, alpha=0.1, gamma=0.95, epsilon=0.3, episodes=10000)
-final_values = maze_td0.run_episodes()
-print(final_values)
-final_values = final_values[0:11, 0:11]
+# maze = MazeEnvironment()
+# maze_td0 = MazeTD0(maze, alpha=0.1, gamma=0.95, epsilon=0.2, episodes=10000)
+# final_values = maze_td0.run_episodes()
+# print(final_values)
+# final_values = final_values[0:11, 0:11]
+# # update value function of the target
+# final_values[np.where(maze.maze == 3)] = 3000
 
-plot_value_function(final_values, maze.maze)
-plot_policy(final_values, maze.maze)
+# plot_value_function(final_values, maze.maze)
+# plot_policy(final_values, maze.maze)
 
-"""
-In this part, you will implement the Q Learning algorithm to directly learn an optimal policy. For this,
-you will initialize the Q values (state-action pair values) arbitrarily, implement the Q Learning update
-rule and use an ε-greedy strategy to improve exploration and exploitation balance
-"""
+############ Q Learning ###################
 
 class MazeQLearning(MazeEnvironment):  # Inherited from MazeEnvironment
     def __init__(self, maze, alpha=0.1, gamma=0.95, epsilon=0.2, episodes=10000):
@@ -159,6 +167,7 @@ class MazeQLearning(MazeEnvironment):  # Inherited from MazeEnvironment
         self.episodes = episodes
         self.q_table = np.zeros((maze.maze.shape[0], maze.maze.shape[1], 4))  # Initialize Q-table
         self.valid_actions = list(maze.actions.keys())
+        self.episodes_to_plot = [1, 50, 100, 1000, 5000, 10000]
 
     def choose_action(self, state):
         if random.uniform(0, 1) < self.epsilon:  # Explore
@@ -173,6 +182,16 @@ class MazeQLearning(MazeEnvironment):  # Inherited from MazeEnvironment
         new_q = current_q + self.alpha * (reward + self.gamma * max_future_q - current_q)
         self.q_table[current_state[0], current_state[1], action] = new_q
 
+
+    # for Q-learning output
+    def value_function_from_q_table(self):
+        # convert q_table to value function
+        value_function = np.max(self.q_table, axis=2)
+        # make the invalid moves -1000 in value function
+        value_function[np.where(self.maze.maze == 1)] = -1000
+        value_function[np.where(self.maze.maze == 3)] =  3000
+        return value_function
+    
     def run_episodes(self):
         for episode in tqdm(range(self.episodes)):
             state = self.maze.reset()  # Assuming reset initializes and returns the start state
@@ -186,14 +205,23 @@ class MazeQLearning(MazeEnvironment):  # Inherited from MazeEnvironment
 
                 if self.maze.maze[state] == 3 or self.maze.maze[state] == 2:
                         break
-
+            if (episode+1) in self.episodes_to_plot:
+                utility_vals = self.value_function_from_q_table()
+                plot_value_function(utility_vals, self.maze.maze)
         return self.q_table
+
+
 maze = MazeEnvironment()# Use 0 = free space, 1 = obstacle, 2 = goal
 maze_q_learning = MazeQLearning(maze, alpha=0.1, gamma=0.95, epsilon=0.2, episodes=10000)
 q_table = maze_q_learning.run_episodes()
 
-# convert q_table to value function
-value_function = np.max(q_table, axis=2)
+# # convert q_table to value function
+# value_function = np.max(q_table, axis=2)
+# # make the invalid moves -1000 in value function
+# value_function[np.where(maze.maze == 1)] = -1000
+# value_function[np.where(maze.maze == 3)] =  3000
 
-plot_value_function(value_function, maze.maze)
-plot_policy(value_function, maze.maze)
+
+# plot_value_function(value_function, maze.maze)
+# plot_policy(value_function, maze.maze)
+
