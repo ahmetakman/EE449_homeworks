@@ -141,18 +141,26 @@ class MazeTD0(MazeEnvironment):  # Inherited from MazeEnvironment
             utility_vals = self.value_function_from_utility()
 
             self.convergence_data.append(np.sum(np.abs(np.subtract(utility_vals, self.previous_values))))
-            self.previous_value = utility_vals
+            self.previous_values = utility_vals.copy()
 
             if (episode+1) in self.episodes_to_plot:
                 plot_value_function(utility_vals, self.maze.maze)
         # plot the convergence data
         plt.figure()
-        plt.plot(self.convergence_data)
+        plt.plot(self.convergence_data[1:])
         plt.xlabel("episodes")
         plt.ylabel("sum of absolute differences")
         plt.title("Convergence over episodes")
         plt.grid()
         plt.show()
+        # smoothed version of it
+        # plt.figure()
+        # plt.plot(np.convolve(np.array(self.convergence_data[1:]),np.array([0.1, 0.1, 0.1, 0.1, 0.1]), "same"))
+        # plt.xlabel("episodes")
+        # plt.ylabel("sum of absolute differences")
+        # plt.title("Convergence over episodes")
+        # plt.grid()
+        # plt.show()
         return self.utility
 
 
@@ -218,13 +226,13 @@ class MazeQLearning(MazeEnvironment):  # Inherited from MazeEnvironment
             utility_vals = self.value_function_from_q_table()
 
             self.convergence_data.append(np.sum(np.abs(np.subtract(utility_vals, self.previous_values))))
-            self.previous_value = utility_vals
+            self.previous_values = utility_vals.copy()
 
             if (episode+1) in self.episodes_to_plot:
                 plot_value_function(utility_vals, self.maze.maze)
         # plot the convergence data
         plt.figure()
-        plt.plot(self.convergence_data)
+        plt.plot(self.convergence_data[1:])
         plt.xlabel("episodes")
         plt.ylabel("sum of absolute differences")
         plt.title("Convergence over episodes")
