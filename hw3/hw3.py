@@ -196,6 +196,7 @@ class MazeQLearning(MazeEnvironment):  # Inherited from MazeEnvironment
         self.previous_values = np.zeros((11, 11))
         self.episodes_to_plot = [1, 50, 100, 1000, 5000, 10000]
         
+        self.wander_limit = 10000
     def choose_action(self, state):
         if random.uniform(0, 1) < self.epsilon:  # Explore
             return random.choice(self.valid_actions)
@@ -223,6 +224,8 @@ class MazeQLearning(MazeEnvironment):  # Inherited from MazeEnvironment
         for episode in tqdm(range(self.episodes)):
             state = self.maze.reset()  # Assuming reset initializes and returns the start state
 
+            wander_count = 0
+
             while True:
                 action = self.choose_action(state)
                 new_state, reward = self.maze.step(action)  # Assuming step executes action and returns new_state, reward, and done
@@ -232,6 +235,11 @@ class MazeQLearning(MazeEnvironment):  # Inherited from MazeEnvironment
 
                 if self.maze.maze[state] == 3 or self.maze.maze[state] == 2:
                         break
+                wander_count += 1
+                # to limit too much wandering
+                if wander_count > self.wander_limit:
+                    break
+
                 
             utility_vals = self.value_function_from_q_table()
 
@@ -294,10 +302,10 @@ parameters_epsilon_sweep = [{"alpha": 0.1, "gamma": 0.95, "epsilon": 0.0, "episo
                 {"alpha": 0.1, "gamma": 0.95, "epsilon": 0.8, "episodes": 10000},
                 {"alpha": 0.1, "gamma": 0.95, "epsilon": 1.0, "episodes": 10000}]
 
-# alpha sweep TD learning
-for parameters in parameters_alpha_sweep:
-    maze_td0 = MazeTD0(maze, alpha=parameters["alpha"], gamma=parameters["gamma"], epsilon=parameters["epsilon"], episodes=parameters["episodes"])
-    final_values = maze_td0.run_episodes()
+# # alpha sweep TD learning
+# for parameters in parameters_alpha_sweep:
+#     maze_td0 = MazeTD0(maze, alpha=parameters["alpha"], gamma=parameters["gamma"], epsilon=parameters["epsilon"], episodes=parameters["episodes"])
+#     final_values = maze_td0.run_episodes()
     
 # # alpha sweep Q learning
 # for parameters in parameters_alpha_sweep:
@@ -309,10 +317,10 @@ for parameters in parameters_alpha_sweep:
 #     maze_td0 = MazeTD0(maze, alpha=parameters["alpha"], gamma=parameters["gamma"], epsilon=parameters["epsilon"], episodes=parameters["episodes"])
 #     final_values = maze_td0.run_episodes()
 
-# # gamma sweep Q learning
-# for parameters in parameters_gamma_sweep:
-#     maze_q_learning = MazeQLearning(maze, alpha=parameters["alpha"], gamma=parameters["gamma"], epsilon=parameters["epsilon"], episodes=parameters["episodes"])
-#     q_table = maze_q_learning.run_episodes()
+# gamma sweep Q learning
+for parameters in parameters_gamma_sweep:
+    maze_q_learning = MazeQLearning(maze, alpha=parameters["alpha"], gamma=parameters["gamma"], epsilon=parameters["epsilon"], episodes=parameters["episodes"])
+    q_table = maze_q_learning.run_episodes()
 
 # # epsilon sweep TD learning
 # for parameters in parameters_epsilon_sweep:
