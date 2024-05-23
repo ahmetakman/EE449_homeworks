@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from  matplotlib.colors import LinearSegmentedColormap
 
-def plot_value_function(value_function, maze):
+def plot_value_function(value_function, maze, alpha, gamma, epsilon, iteration):
     mask = np.zeros_like(value_function, dtype=bool)
     mask[maze == 1] = True  # Mask obstacles
     mask[maze == 2] = True  # Mask the trap
@@ -24,9 +24,10 @@ def plot_value_function(value_function, maze):
     for o in obs_position:
         ax.add_patch(plt.Rectangle(o[::-1], 1, 1, fill=True, edgecolor='black', facecolor='gray'))
     ax.set_title("Value Function")
-    plt.show()
-
-def plot_policy(value_function, maze):
+    # plt.show()
+    plt.savefig(f'hw3/output/value_function_alpha_{alpha}_gamma_{gamma}_epsilon_{epsilon}_iteration_{iteration}.png')
+    plt.close() 
+def plot_policy(value_function, maze, alpha, gamma, epsilon, iteration):
     policy_arrows = {'up': '↑', 'down': '↓', 'left': '←', 'right': '→'}
     policy_grid = np.full(maze.shape, '', dtype='<U2')
     actions = ['up', 'down', 'left', 'right']
@@ -74,5 +75,6 @@ def plot_policy(value_function, maze):
     for o in obs_position:
         ax.add_patch(plt.Rectangle(o[::-1], 1, 1, fill=True, edgecolor='black', facecolor='gray'))
     ax.set_title("Policy Map")
-    plt.show()
-
+    # plt.show()
+    plt.savefig(f'hw3/output/policy_alpha_{alpha}_gamma_{gamma}_epsilon_{epsilon}_iteration_{iteration}.png')
+    plt.close()

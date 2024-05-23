@@ -96,6 +96,8 @@ class MazeTD0(MazeEnvironment):  # Inherited from MazeEnvironment
         self.convergence_data = []
         self.episodes_to_plot = [1, 50, 100, 1000, 5000, 10000]
         self.previous_values = np.zeros((11, 11))
+
+        self.wander_limit = 1000
     def choose_action(self, state):
         if random.random() < self.epsilon:
             # Explore: Randomly choose an action
@@ -126,7 +128,7 @@ class MazeTD0(MazeEnvironment):  # Inherited from MazeEnvironment
     def run_episodes(self):
         for episode in tqdm(range(self.episodes)):
             self.maze.reset()
-
+            wander_count = 0
             while True:
                 current_state = self.maze.current_pos
 
@@ -137,14 +139,18 @@ class MazeTD0(MazeEnvironment):  # Inherited from MazeEnvironment
                 # print(current_state)
                 if self.maze.maze[current_state] == 3 or self.maze.maze[current_state] == 2:
                     break
-
+                wander_count += 1
+                # to limit too much wandering
+                if wander_count > self.wander_limit:
+                    break
             utility_vals = self.value_function_from_utility()
 
             self.convergence_data.append(np.sum(np.abs(np.subtract(utility_vals, self.previous_values))))
             self.previous_values = utility_vals.copy()
 
             if (episode+1) in self.episodes_to_plot:
-                plot_value_function(utility_vals, self.maze.maze)
+                plot_value_function(utility_vals, self.maze.maze, self.alpha, self.gamma, self.epsilon, episode+1)
+                plot_policy(utility_vals, self.maze.maze, self.alpha, self.gamma, self.epsilon, episode+1)
         # plot the convergence data
         plt.figure()
         plt.plot(self.convergence_data[1:])
@@ -152,7 +158,9 @@ class MazeTD0(MazeEnvironment):  # Inherited from MazeEnvironment
         plt.ylabel("sum of absolute differences")
         plt.title("Convergence over episodes")
         plt.grid()
-        plt.show()
+        # plt.show()
+        plt.savefig("hw3/output/convergence_TD_alpha_{}_gamma_{}_epislon_{}.png".format(self.alpha, self.gamma, self.epsilon))
+        plt.close()
         # smoothed version of it
         plt.figure()
         plt.plot(np.convolve(self.convergence_data[1:], np.ones(100)/100, mode='valid'))
@@ -160,7 +168,9 @@ class MazeTD0(MazeEnvironment):  # Inherited from MazeEnvironment
         plt.ylabel("sum of absolute differences")
         plt.title("Convergence over episodes")
         plt.grid()
-        plt.show()
+        # plt.show()
+        plt.savefig("hw3/output/convergence_TD_smoothed_alpha_{}_gamma_{}_epislon_{}.png".format(self.alpha, self.gamma, self.epsilon))
+        plt.close()
         return self.utility
 
 
@@ -168,7 +178,7 @@ class MazeTD0(MazeEnvironment):  # Inherited from MazeEnvironment
 maze = MazeEnvironment()
 maze_td0 = MazeTD0(maze, alpha=0.1, gamma=0.95, epsilon=0.2, episodes=10000)
 final_values = maze_td0.run_episodes()
-plot_policy(maze_td0.value_function_from_utility(), maze.maze)
+plot_policy(maze_td0.value_function_from_utility(), maze.maze, maze_td0.alpha, maze_td0.gamma, maze_td0.epsilon, maze_td0.episodes)
 ############ Q Learning ###################
 
 class MazeQLearning(MazeEnvironment):  # Inherited from MazeEnvironment
@@ -229,7 +239,8 @@ class MazeQLearning(MazeEnvironment):  # Inherited from MazeEnvironment
             self.previous_values = utility_vals.copy()
 
             if (episode+1) in self.episodes_to_plot:
-                plot_value_function(utility_vals, self.maze.maze)
+                plot_value_function(utility_vals, self.maze.maze, self.alpha, self.gamma, self.epsilon, episode+1)
+                plot_policy(utility_vals, self.maze.maze, self.alpha, self.gamma, self.epsilon, episode+1)
         # plot the convergence data
         plt.figure()
         plt.plot(self.convergence_data[1:])
@@ -237,7 +248,9 @@ class MazeQLearning(MazeEnvironment):  # Inherited from MazeEnvironment
         plt.ylabel("sum of absolute differences")
         plt.title("Convergence over episodes")
         plt.grid()
-        plt.show()
+        # plt.show()
+        plt.savefig("hw3/output/convergence_Q_alpha_{}_gamma_{}_epislon_{}.png".format(self.alpha, self.gamma, self.epsilon))
+        plt.close()
         # smoothed version of it
         plt.figure()
         plt.plot(np.convolve(self.convergence_data[1:], np.ones(100)/100, mode='valid'))
@@ -245,15 +258,68 @@ class MazeQLearning(MazeEnvironment):  # Inherited from MazeEnvironment
         plt.ylabel("sum of absolute differences")
         plt.title("Convergence over episodes")
         plt.grid()
-        plt.show()
+        # plt.show()
+        plt.savefig("hw3/output/convergence_Q_smoothed_alpha_{}_gamma_{}_epislon_{}.png".format(self.alpha, self.gamma, self.epsilon))
+        plt.close()
         return self.q_table
 
 
 maze = MazeEnvironment()# Use 0 = free space, 1 = obstacle, 2 = goal
 maze_q_learning = MazeQLearning(maze, alpha=0.1, gamma=0.95, epsilon=0.2, episodes=10000)
 q_table = maze_q_learning.run_episodes()
-plot_policy(maze_q_learning.value_function_from_q_table(), maze.maze)
+plot_policy(maze_q_learning.value_function_from_q_table(), maze.maze, maze_q_learning.alpha, maze_q_learning.gamma, maze_q_learning.epsilon, maze_q_learning.episodes)
 
 # plot_value_function(value_function, maze.maze)
 # plot_policy(value_function, maze.maze)
 
+
+
+parameters_alpha_sweep = [{"alpha": 0.001, "gamma": 0.95, "epsilon": 0.2, "episodes": 10000},
+                {"alpha": 0.001, "gamma": 0.95, "epsilon": 0.2, "episodes": 10000},
+                {"alpha": 0.1, "gamma": 0.95, "epsilon": 0.2, "episodes": 10000},
+                {"alpha": 0.5, "gamma": 0.95, "epsilon": 0.2, "episodes": 10000},
+                {"alpha": 1, "gamma": 0.95, "epsilon": 0.2, "episodes": 10000}]
+
+
+parameters_gamma_sweep = [{"alpha": 0.1, "gamma": 0.1, "epsilon": 0.2, "episodes": 10000},
+                {"alpha": 0.1, "gamma": 0.25, "epsilon": 0.2, "episodes": 10000},
+                {"alpha": 0.1, "gamma": 0.50, "epsilon": 0.2, "episodes": 10000},
+                {"alpha": 0.1, "gamma": 0.75, "epsilon": 0.2, "episodes": 10000},
+                {"alpha": 0.1, "gamma": 95, "epsilon": 0.2, "episodes": 10000}]
+                
+
+parameters_epsilon_sweep = [{"alpha": 0.1, "gamma": 0.95, "epsilon": 0.0, "episodes": 10000},
+                {"alpha": 0.1, "gamma": 0.95, "epsilon": 0.2, "episodes": 10000},
+                {"alpha": 0.1, "gamma": 0.95, "epsilon": 0.5, "episodes": 10000},
+                {"alpha": 0.1, "gamma": 0.95, "epsilon": 0.8, "episodes": 10000},
+                {"alpha": 0.1, "gamma": 0.95, "epsilon": 1.0, "episodes": 10000}]
+
+# alpha sweep TD learning
+for parameters in parameters_alpha_sweep:
+    maze_td0 = MazeTD0(maze, alpha=parameters["alpha"], gamma=parameters["gamma"], epsilon=parameters["epsilon"], episodes=parameters["episodes"])
+    final_values = maze_td0.run_episodes()
+    
+# # alpha sweep Q learning
+# for parameters in parameters_alpha_sweep:
+#     maze_q_learning = MazeQLearning(maze, alpha=parameters["alpha"], gamma=parameters["gamma"], epsilon=parameters["epsilon"], episodes=parameters["episodes"])
+#     q_table = maze_q_learning.run_episodes()
+
+# # gamma sweep TD learning
+# for parameters in parameters_gamma_sweep:
+#     maze_td0 = MazeTD0(maze, alpha=parameters["alpha"], gamma=parameters["gamma"], epsilon=parameters["epsilon"], episodes=parameters["episodes"])
+#     final_values = maze_td0.run_episodes()
+
+# # gamma sweep Q learning
+# for parameters in parameters_gamma_sweep:
+#     maze_q_learning = MazeQLearning(maze, alpha=parameters["alpha"], gamma=parameters["gamma"], epsilon=parameters["epsilon"], episodes=parameters["episodes"])
+#     q_table = maze_q_learning.run_episodes()
+
+# # epsilon sweep TD learning
+# for parameters in parameters_epsilon_sweep:
+#     maze_td0 = MazeTD0(maze, alpha=parameters["alpha"], gamma=parameters["gamma"], epsilon=parameters["epsilon"], episodes=parameters["episodes"])
+#     final_values = maze_td0.run_episodes()
+
+# # epsilon sweep Q learning
+# for parameters in parameters_epsilon_sweep:
+#     maze_q_learning = MazeQLearning(maze, alpha=parameters["alpha"], gamma=parameters["gamma"], epsilon=parameters["epsilon"], episodes=parameters["episodes"])
+#     q_table = maze_q_learning.run_episodes()
