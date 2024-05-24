@@ -71,8 +71,89 @@
 \section{Experimental Work}
 \subsection{Temporal Difference Learning Default Parameters}
 
-\subsection{Q-Learning Default Parameters}
+% polict map plots
 
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/default/policy_alpha_0.1_gamma_0.95_epsilon_0.2_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/default/policy_alpha_0.1_gamma_0.95_epsilon_0.2_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/default/policy_alpha_0.1_gamma_0.95_epsilon_0.2_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/default/policy_alpha_0.1_gamma_0.95_epsilon_0.2_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/default/policy_alpha_0.1_gamma_0.95_epsilon_0.2_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/default/policy_alpha_0.1_gamma_0.95_epsilon_0.2_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of policy maps throughout episodes.}
+    \label{fig:default_td_learning_policy}
+\end{figure}
+
+% value function plots
+
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/default/value_function_alpha_0.1_gamma_0.95_epsilon_0.2_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/default/value_function_alpha_0.1_gamma_0.95_epsilon_0.2_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/default/value_function_alpha_0.1_gamma_0.95_epsilon_0.2_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/default/value_function_alpha_0.1_gamma_0.95_epsilon_0.2_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/default/value_function_alpha_0.1_gamma_0.95_epsilon_0.2_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/default/value_function_alpha_0.1_gamma_0.95_epsilon_0.2_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of value function throughout episodes.}
+    \label{fig:default_td_learning_value}
+\end{figure}
+
+% convergence plots
+
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_td/default/convergence_TD_alpha_0.1_gamma_0.95_epislon_0.2.png}
+    \caption{Converge raw.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_td/default/convergence_TD_smoothed_alpha_0.1_gamma_0.95_epislon_0.2.png}
+    \caption{Smoothed convergence.}
+    \end{subfigure}
+    \caption{Converge of value function.}
+    \label{fig:default_td_learning_convergence}
+\end{figure}
+
+
+
+
+
+\subsection{Q-Learning Default Parameters}
+% polict map plots
 \begin{figure}[H]
     \begin{subfigure}{0.3\textwidth}
         \includegraphics[width=\textwidth]{figures/policy_q/default/policy_alpha_0.1_gamma_0.95_epsilon_0.2_iteration_1.png}
@@ -104,7 +185,7 @@
 
 
 
-
+% value function plots
 \begin{figure}[H]
     \begin{subfigure}{0.3\textwidth}
         \includegraphics[width=\textwidth]{figures/value_q/default/value_function_alpha_0.1_gamma_0.95_epsilon_0.2_iteration_1.png}
@@ -135,7 +216,19 @@
 \end{figure}
 
 
-
+% convergence plots
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_q/default/convergence_Q_alpha_0.1_gamma_0.95_epislon_0.2.png}
+    \caption{Converge raw.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_q/default/convergence_Q_smoothed_alpha_0.1_gamma_0.95_epislon_0.2.png}
+    \caption{Smoothed convergence.}
+    \end{subfigure}
+    \caption{Converge of value function.}
+    \label{fig:default_q_learning_convergence}
+\end{figure}
 
 
 
