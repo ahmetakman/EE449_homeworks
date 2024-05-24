@@ -175,10 +175,10 @@ class MazeTD0(MazeEnvironment):  # Inherited from MazeEnvironment
 
 
 # Create an instance of the Maze with TD(0) and run multiple episodes
-maze = MazeEnvironment()
-maze_td0 = MazeTD0(maze, alpha=0.1, gamma=0.95, epsilon=0.2, episodes=10000)
-final_values = maze_td0.run_episodes()
-plot_policy(maze_td0.value_function_from_utility(), maze.maze, maze_td0.alpha, maze_td0.gamma, maze_td0.epsilon, maze_td0.episodes)
+# maze = MazeEnvironment()
+# maze_td0 = MazeTD0(maze, alpha=0.1, gamma=0.95, epsilon=0.2, episodes=10000)
+# final_values = maze_td0.run_episodes()
+# plot_policy(maze_td0.value_function_from_utility(), maze.maze, maze_td0.alpha, maze_td0.gamma, maze_td0.epsilon, maze_td0.episodes)
 ############ Q Learning ###################
 
 class MazeQLearning(MazeEnvironment):  # Inherited from MazeEnvironment
@@ -272,10 +272,10 @@ class MazeQLearning(MazeEnvironment):  # Inherited from MazeEnvironment
         return self.q_table
 
 
-maze = MazeEnvironment()# Use 0 = free space, 1 = obstacle, 2 = goal
-maze_q_learning = MazeQLearning(maze, alpha=0.1, gamma=0.95, epsilon=0.2, episodes=10000)
-q_table = maze_q_learning.run_episodes()
-plot_policy(maze_q_learning.value_function_from_q_table(), maze.maze, maze_q_learning.alpha, maze_q_learning.gamma, maze_q_learning.epsilon, maze_q_learning.episodes)
+# maze = MazeEnvironment()# Use 0 = free space, 1 = obstacle, 2 = goal
+# maze_q_learning = MazeQLearning(maze, alpha=0.1, gamma=0.95, epsilon=0.2, episodes=10000)
+# q_table = maze_q_learning.run_episodes()
+# plot_policy(maze_q_learning.value_function_from_q_table(), maze.maze, maze_q_learning.alpha, maze_q_learning.gamma, maze_q_learning.epsilon, maze_q_learning.episodes)
 
 # plot_value_function(value_function, maze.maze)
 # plot_policy(value_function, maze.maze)
@@ -317,17 +317,18 @@ parameters_epsilon_sweep = [{"alpha": 0.1, "gamma": 0.95, "epsilon": 0.0, "episo
 #     maze_td0 = MazeTD0(maze, alpha=parameters["alpha"], gamma=parameters["gamma"], epsilon=parameters["epsilon"], episodes=parameters["episodes"])
 #     final_values = maze_td0.run_episodes()
 
-# gamma sweep Q learning
-for parameters in parameters_gamma_sweep:
-    maze_q_learning = MazeQLearning(maze, alpha=parameters["alpha"], gamma=parameters["gamma"], epsilon=parameters["epsilon"], episodes=parameters["episodes"])
-    q_table = maze_q_learning.run_episodes()
+# # gamma sweep Q learning
+# for parameters in parameters_gamma_sweep:
+#     maze_q_learning = MazeQLearning(maze, alpha=parameters["alpha"], gamma=parameters["gamma"], epsilon=parameters["epsilon"], episodes=parameters["episodes"])
+#     q_table = maze_q_learning.run_episodes()
+maze = MazeEnvironment()
 
-# # epsilon sweep TD learning
+# epsilon sweep TD learning
 # for parameters in parameters_epsilon_sweep:
 #     maze_td0 = MazeTD0(maze, alpha=parameters["alpha"], gamma=parameters["gamma"], epsilon=parameters["epsilon"], episodes=parameters["episodes"])
 #     final_values = maze_td0.run_episodes()
 
-# # epsilon sweep Q learning
-# for parameters in parameters_epsilon_sweep:
-#     maze_q_learning = MazeQLearning(maze, alpha=parameters["alpha"], gamma=parameters["gamma"], epsilon=parameters["epsilon"], episodes=parameters["episodes"])
-#     q_table = maze_q_learning.run_episodes()
+# epsilon sweep Q learning
+for parameters in parameters_epsilon_sweep:
+    maze_q_learning = MazeQLearning(maze, alpha=parameters["alpha"], gamma=parameters["gamma"], epsilon=parameters["epsilon"], episodes=parameters["episodes"])
+    q_table = maze_q_learning.run_episodes()
