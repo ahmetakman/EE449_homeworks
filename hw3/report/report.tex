@@ -234,16 +234,1677 @@
 
 
 \subsection{Effect of Alpha in Temporal Difference Learning}
+%parameters_alpha_sweep = [{"alpha": 0.001, "gamma": 0.95, "epsilon": 0.2, "episodes": 10000},
+% {"alpha": 0.001, "gamma": 0.95, "epsilon": 0.2, "episodes": 10000},
+% {"alpha": 0.1, "gamma": 0.95, "epsilon": 0.2, "episodes": 10000},
+% {"alpha": 0.5, "gamma": 0.95, "epsilon": 0.2, "episodes": 10000},
+% {"alpha": 1, "gamma": 0.95, "epsilon": 0.2, "episodes": 10000}]
+
+% policy plots for alpha sweep of TD learning alpha = 0.001
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/alpha_sweep/policy_alpha_0.001_gamma_0.95_epsilon_0.2_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/alpha_sweep/policy_alpha_0.001_gamma_0.95_epsilon_0.2_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/alpha_sweep/policy_alpha_0.001_gamma_0.95_epsilon_0.2_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/alpha_sweep/policy_alpha_0.001_gamma_0.95_epsilon_0.2_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/alpha_sweep/policy_alpha_0.001_gamma_0.95_epsilon_0.2_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/alpha_sweep/policy_alpha_0.001_gamma_0.95_epsilon_0.2_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of policy maps throughout episodes.}
+    \label{fig:alpha_0.001_td_learning_policy}
+\end{figure}
+
+% value plots for alpha sweep of TD learning alpha = 0.001
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/alpha_sweep/value_function_alpha_0.001_gamma_0.95_epsilon_0.2_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/alpha_sweep/value_function_alpha_0.001_gamma_0.95_epsilon_0.2_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/alpha_sweep/value_function_alpha_0.001_gamma_0.95_epsilon_0.2_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/alpha_sweep/value_function_alpha_0.001_gamma_0.95_epsilon_0.2_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/alpha_sweep/value_function_alpha_0.001_gamma_0.95_epsilon_0.2_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/alpha_sweep/value_function_alpha_0.001_gamma_0.95_epsilon_0.2_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of value function throughout episodes.}
+    \label{fig:alpha_0.001_td_learning_value}
+\end{figure}
+
+% convergence plots for alpha sweep of TD learning alpha = 0.001
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_td/alpha_sweep/convergence_TD_alpha_0.001_gamma_0.95_epislon_0.2.png}
+    \caption{Converge raw.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_td/alpha_sweep/convergence_TD_smoothed_alpha_0.001_gamma_0.95_epislon_0.2.png}
+    \caption{Smoothed convergence.}
+    \end{subfigure}
+    \caption{Converge of value function.}
+    \label{fig:alpha_0.001_td_learning_convergence}
+\end{figure}
+
+% policy plots for alpha sweep of TD learning alpha = 0.5
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/alpha_sweep/policy_alpha_0.5_gamma_0.95_epsilon_0.2_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/alpha_sweep/policy_alpha_0.5_gamma_0.95_epsilon_0.2_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/alpha_sweep/policy_alpha_0.5_gamma_0.95_epsilon_0.2_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/alpha_sweep/policy_alpha_0.5_gamma_0.95_epsilon_0.2_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/alpha_sweep/policy_alpha_0.5_gamma_0.95_epsilon_0.2_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/alpha_sweep/policy_alpha_0.5_gamma_0.95_epsilon_0.2_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of policy maps throughout episodes.}
+    \label{fig:alpha_0.5_td_learning_policy}
+\end{figure}
+
+% value plots for alpha sweep of TD learning alpha = 0.5
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/alpha_sweep/value_function_alpha_0.5_gamma_0.95_epsilon_0.2_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/alpha_sweep/value_function_alpha_0.5_gamma_0.95_epsilon_0.2_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/alpha_sweep/value_function_alpha_0.5_gamma_0.95_epsilon_0.2_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/alpha_sweep/value_function_alpha_0.5_gamma_0.95_epsilon_0.2_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/alpha_sweep/value_function_alpha_0.5_gamma_0.95_epsilon_0.2_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/alpha_sweep/value_function_alpha_0.5_gamma_0.95_epsilon_0.2_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of value function throughout episodes.}
+    \label{fig:alpha_0.5_td_learning_value}
+\end{figure}
+
+% convergence plots for alpha sweep of TD learning alpha = 0.5
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_td/alpha_sweep/convergence_TD_alpha_0.5_gamma_0.95_epislon_0.2.png}
+    \caption{Converge raw.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_td/alpha_sweep/convergence_TD_smoothed_alpha_0.5_gamma_0.95_epislon_0.2.png}
+    \caption{Smoothed convergence.}
+    \end{subfigure}
+    \caption{Converge of value function.}
+    \label{fig:alpha_0.5_td_learning_convergence}
+\end{figure}
+
+% policy plots for alpha sweep of TD learning alpha = 1
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/alpha_sweep/policy_alpha_1_gamma_0.95_epsilon_0.2_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/alpha_sweep/policy_alpha_1_gamma_0.95_epsilon_0.2_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/alpha_sweep/policy_alpha_1_gamma_0.95_epsilon_0.2_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/alpha_sweep/policy_alpha_1_gamma_0.95_epsilon_0.2_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/alpha_sweep/policy_alpha_1_gamma_0.95_epsilon_0.2_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/alpha_sweep/policy_alpha_1_gamma_0.95_epsilon_0.2_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of policy maps throughout episodes.}
+    \label{fig:alpha_1_td_learning_policy}
+\end{figure}
+
+% value plots for alpha sweep of TD learning alpha = 1
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/alpha_sweep/value_function_alpha_1_gamma_0.95_epsilon_0.2_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/alpha_sweep/value_function_alpha_1_gamma_0.95_epsilon_0.2_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/alpha_sweep/value_function_alpha_1_gamma_0.95_epsilon_0.2_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/alpha_sweep/value_function_alpha_1_gamma_0.95_epsilon_0.2_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/alpha_sweep/value_function_alpha_1_gamma_0.95_epsilon_0.2_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/alpha_sweep/value_function_alpha_1_gamma_0.95_epsilon_0.2_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of value function throughout episodes.}
+    \label{fig:alpha_1_td_learning_value}
+\end{figure}
+
+% convergence plots for alpha sweep of TD learning alpha = 1
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_td/alpha_sweep/convergence_TD_alpha_1_gamma_0.95_epislon_0.2.png}
+    \caption{Converge raw.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_td/alpha_sweep/convergence_TD_smoothed_alpha_1_gamma_0.95_epislon_0.2.png}
+    \caption{Smoothed convergence.}
+    \end{subfigure}
+    \caption{Converge of value function.}
+    \label{fig:alpha_1_td_learning_convergence}
+\end{figure}
+
+
+
 
 \subsection{Effect of Alpha in Q-Learning}
 
+% policy plots for alpha sweep of Q learning alpha = 0.001
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/alpha_sweep/policy_alpha_0.001_gamma_0.95_epsilon_0.2_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/alpha_sweep/policy_alpha_0.001_gamma_0.95_epsilon_0.2_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/alpha_sweep/policy_alpha_0.001_gamma_0.95_epsilon_0.2_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/alpha_sweep/policy_alpha_0.001_gamma_0.95_epsilon_0.2_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/alpha_sweep/policy_alpha_0.001_gamma_0.95_epsilon_0.2_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/alpha_sweep/policy_alpha_0.001_gamma_0.95_epsilon_0.2_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of policy maps throughout episodes.}
+    \label{fig:alpha_0.001_q_learning_policy}
+\end{figure}
+
+% value plots for alpha sweep of Q learning alpha = 0.001
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/alpha_sweep/value_function_alpha_0.001_gamma_0.95_epsilon_0.2_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/alpha_sweep/value_function_alpha_0.001_gamma_0.95_epsilon_0.2_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/alpha_sweep/value_function_alpha_0.001_gamma_0.95_epsilon_0.2_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/alpha_sweep/value_function_alpha_0.001_gamma_0.95_epsilon_0.2_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/alpha_sweep/value_function_alpha_0.001_gamma_0.95_epsilon_0.2_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/alpha_sweep/value_function_alpha_0.001_gamma_0.95_epsilon_0.2_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of value function throughout episodes.}
+    \label{fig:alpha_0.001_q_learning_value}
+\end{figure}
+
+% convergence plots for alpha sweep of Q learning alpha = 0.001
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_q/alpha_sweep/convergence_Q_alpha_0.001_gamma_0.95_epislon_0.2.png}
+    \caption{Converge raw.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_q/alpha_sweep/convergence_Q_smoothed_alpha_0.001_gamma_0.95_epislon_0.2.png}
+    \caption{Smoothed convergence.}
+    \end{subfigure}
+    \caption{Converge of value function.}
+    \label{fig:alpha_0.001_q_learning_convergence}
+\end{figure}
+
+% policy plots for alpha sweep of Q learning alpha = 0.5
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/alpha_sweep/policy_alpha_0.5_gamma_0.95_epsilon_0.2_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/alpha_sweep/policy_alpha_0.5_gamma_0.95_epsilon_0.2_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/alpha_sweep/policy_alpha_0.5_gamma_0.95_epsilon_0.2_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/alpha_sweep/policy_alpha_0.5_gamma_0.95_epsilon_0.2_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/alpha_sweep/policy_alpha_0.5_gamma_0.95_epsilon_0.2_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/alpha_sweep/policy_alpha_0.5_gamma_0.95_epsilon_0.2_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of policy maps throughout episodes.}
+    \label{fig:alpha_0.5_q_learning_policy}
+\end{figure}
+
+% value plots for alpha sweep of Q learning alpha = 0.5
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/alpha_sweep/value_function_alpha_0.5_gamma_0.95_epsilon_0.2_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/alpha_sweep/value_function_alpha_0.5_gamma_0.95_epsilon_0.2_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/alpha_sweep/value_function_alpha_0.5_gamma_0.95_epsilon_0.2_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/alpha_sweep/value_function_alpha_0.5_gamma_0.95_epsilon_0.2_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/alpha_sweep/value_function_alpha_0.5_gamma_0.95_epsilon_0.2_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/alpha_sweep/value_function_alpha_0.5_gamma_0.95_epsilon_0.2_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of value function throughout episodes.}
+    \label{fig:alpha_0.5_q_learning_value}
+\end{figure}
+
+% convergence plots for alpha sweep of Q learning alpha = 0.5
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_q/alpha_sweep/convergence_Q_alpha_0.5_gamma_0.95_epislon_0.2.png}
+    \caption{Converge raw.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_q/alpha_sweep/convergence_Q_smoothed_alpha_0.5_gamma_0.95_epislon_0.2.png}
+    \caption{Smoothed convergence.}
+    \end{subfigure}
+    \caption{Converge of value function.}
+    \label{fig:alpha_0.5_q_learning_convergence}
+\end{figure}
+
+% policy plots for alpha sweep of Q learning alpha = 1
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/alpha_sweep/policy_alpha_1_gamma_0.95_epsilon_0.2_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/alpha_sweep/policy_alpha_1_gamma_0.95_epsilon_0.2_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/alpha_sweep/policy_alpha_1_gamma_0.95_epsilon_0.2_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/alpha_sweep/policy_alpha_1_gamma_0.95_epsilon_0.2_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/alpha_sweep/policy_alpha_1_gamma_0.95_epsilon_0.2_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/alpha_sweep/policy_alpha_1_gamma_0.95_epsilon_0.2_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of policy maps throughout episodes.}
+    \label{fig:alpha_1_q_learning_policy}
+\end{figure}
+
+% value plots for alpha sweep of Q learning alpha = 1
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/alpha_sweep/value_function_alpha_1_gamma_0.95_epsilon_0.2_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/alpha_sweep/value_function_alpha_1_gamma_0.95_epsilon_0.2_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/alpha_sweep/value_function_alpha_1_gamma_0.95_epsilon_0.2_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/alpha_sweep/value_function_alpha_1_gamma_0.95_epsilon_0.2_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/alpha_sweep/value_function_alpha_1_gamma_0.95_epsilon_0.2_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/alpha_sweep/value_function_alpha_1_gamma_0.95_epsilon_0.2_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of value function throughout episodes.}
+    \label{fig:alpha_1_q_learning_value}
+\end{figure}
+
+% convergence plots for alpha sweep of Q learning alpha = 1
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_q/alpha_sweep/convergence_Q_alpha_1_gamma_0.95_epislon_0.2.png}
+    \caption{Converge raw.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_q/alpha_sweep/convergence_Q_smoothed_alpha_1_gamma_0.95_epislon_0.2.png}
+    \caption{Smoothed convergence.}
+    \end{subfigure}
+    \caption{Converge of value function.}
+    \label{fig:alpha_1_q_learning_convergence}
+\end{figure}
+
+
+
 \subsection{Effect of Gamma in Temporal Difference Learning}
+% parameters_gamma_sweep = [{"alpha": 0.1, "gamma": 0.1, "epsilon": 0.2, "episodes": 10000},
+% {"alpha": 0.1, "gamma": 0.25, "epsilon": 0.2, "episodes": 10000},
+% {"alpha": 0.1, "gamma": 0.50, "epsilon": 0.2, "episodes": 10000},
+% {"alpha": 0.1, "gamma": 0.75, "epsilon": 0.2, "episodes": 10000},
+% {"alpha": 0.1, "gamma": 95, "epsilon": 0.2, "episodes": 10000}]
+
+% policy plots for gamma sweep of TD learning gamma = 0.1
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/gamma_sweep/policy_alpha_0.1_gamma_0.1_epsilon_0.2_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/gamma_sweep/policy_alpha_0.1_gamma_0.1_epsilon_0.2_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/gamma_sweep/policy_alpha_0.1_gamma_0.1_epsilon_0.2_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/gamma_sweep/policy_alpha_0.1_gamma_0.1_epsilon_0.2_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/gamma_sweep/policy_alpha_0.1_gamma_0.1_epsilon_0.2_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/gamma_sweep/policy_alpha_0.1_gamma_0.1_epsilon_0.2_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of policy maps throughout episodes.}
+    \label{fig:gamma_0.1_td_learning_policy}
+\end{figure}
+
+% value plots for gamma sweep of TD learning gamma = 0.1
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/gamma_sweep/value_function_alpha_0.1_gamma_0.1_epsilon_0.2_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/gamma_sweep/value_function_alpha_0.1_gamma_0.1_epsilon_0.2_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/gamma_sweep/value_function_alpha_0.1_gamma_0.1_epsilon_0.2_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/gamma_sweep/value_function_alpha_0.1_gamma_0.1_epsilon_0.2_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/gamma_sweep/value_function_alpha_0.1_gamma_0.1_epsilon_0.2_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/gamma_sweep/value_function_alpha_0.1_gamma_0.1_epsilon_0.2_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of value function throughout episodes.}
+    \label{fig:gamma_0.1_td_learning_value}
+\end{figure}
+
+% convergence plots for gamma sweep of TD learning gamma = 0.1
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_td/gamma_sweep/convergence_TD_alpha_0.1_gamma_0.1_epislon_0.2.png}
+    \caption{Converge raw.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_td/gamma_sweep/convergence_TD_smoothed_alpha_0.1_gamma_0.1_epislon_0.2.png}
+    \caption{Smoothed convergence.}
+    \end{subfigure}
+    \caption{Converge of value function.}
+    \label{fig:gamma_0.1_td_learning_convergence}
+\end{figure}
+
+% policy plots for gamma sweep of TD learning gamma = 0.25
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/gamma_sweep/policy_alpha_0.1_gamma_0.25_epsilon_0.2_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/gamma_sweep/policy_alpha_0.1_gamma_0.25_epsilon_0.2_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/gamma_sweep/policy_alpha_0.1_gamma_0.25_epsilon_0.2_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/gamma_sweep/policy_alpha_0.1_gamma_0.25_epsilon_0.2_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/gamma_sweep/policy_alpha_0.1_gamma_0.25_epsilon_0.2_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/gamma_sweep/policy_alpha_0.1_gamma_0.25_epsilon_0.2_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of policy maps throughout episodes.}
+    \label{fig:gamma_0.25_td_learning_policy}
+\end{figure}
+
+% value plots for gamma sweep of TD learning gamma = 0.25
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/gamma_sweep/value_function_alpha_0.1_gamma_0.25_epsilon_0.2_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/gamma_sweep/value_function_alpha_0.1_gamma_0.25_epsilon_0.2_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/gamma_sweep/value_function_alpha_0.1_gamma_0.25_epsilon_0.2_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/gamma_sweep/value_function_alpha_0.1_gamma_0.25_epsilon_0.2_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/gamma_sweep/value_function_alpha_0.1_gamma_0.25_epsilon_0.2_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/gamma_sweep/value_function_alpha_0.1_gamma_0.25_epsilon_0.2_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of value function throughout episodes.}
+    \label{fig:gamma_0.25_td_learning_value}
+\end{figure}
+
+% convergence plots for gamma sweep of TD learning gamma = 0.25
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_td/gamma_sweep/convergence_TD_alpha_0.1_gamma_0.25_epislon_0.2.png}
+    \caption{Converge raw.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_td/gamma_sweep/convergence_TD_smoothed_alpha_0.1_gamma_0.25_epislon_0.2.png}
+    \caption{Smoothed convergence.}
+    \end{subfigure}
+    \caption{Converge of value function.}
+    \label{fig:gamma_0.25_td_learning_convergence}
+\end{figure}
+
+% policy plots for gamma sweep of TD learning gamma = 0.5
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/gamma_sweep/policy_alpha_0.1_gamma_0.5_epsilon_0.2_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/gamma_sweep/policy_alpha_0.1_gamma_0.5_epsilon_0.2_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/gamma_sweep/policy_alpha_0.1_gamma_0.5_epsilon_0.2_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/gamma_sweep/policy_alpha_0.1_gamma_0.5_epsilon_0.2_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/gamma_sweep/policy_alpha_0.1_gamma_0.5_epsilon_0.2_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/gamma_sweep/policy_alpha_0.1_gamma_0.5_epsilon_0.2_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of policy maps throughout episodes.}
+    \label{fig:gamma_0.5_td_learning_policy}
+\end{figure}
+
+% value plots for gamma sweep of TD learning gamma = 0.5
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/gamma_sweep/value_function_alpha_0.1_gamma_0.5_epsilon_0.2_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/gamma_sweep/value_function_alpha_0.1_gamma_0.5_epsilon_0.2_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/gamma_sweep/value_function_alpha_0.1_gamma_0.5_epsilon_0.2_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/gamma_sweep/value_function_alpha_0.1_gamma_0.5_epsilon_0.2_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/gamma_sweep/value_function_alpha_0.1_gamma_0.5_epsilon_0.2_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/gamma_sweep/value_function_alpha_0.1_gamma_0.5_epsilon_0.2_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of value function throughout episodes.}
+    \label{fig:gamma_0.5_td_learning_value}
+\end{figure}
+
+% convergence plots for gamma sweep of TD learning gamma = 0.5
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_td/gamma_sweep/convergence_TD_alpha_0.1_gamma_0.5_epislon_0.2.png}
+    \caption{Converge raw.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_td/gamma_sweep/convergence_TD_smoothed_alpha_0.1_gamma_0.5_epislon_0.2.png}
+    \caption{Smoothed convergence.}
+    \end{subfigure}
+    \caption{Converge of value function.}
+    \label{fig:gamma_0.5_td_learning_convergence}
+\end{figure}
+
+% policy plots for gamma sweep of TD learning gamma = 0.75
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/gamma_sweep/policy_alpha_0.1_gamma_0.75_epsilon_0.2_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/gamma_sweep/policy_alpha_0.1_gamma_0.75_epsilon_0.2_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/gamma_sweep/policy_alpha_0.1_gamma_0.75_epsilon_0.2_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/gamma_sweep/policy_alpha_0.1_gamma_0.75_epsilon_0.2_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/gamma_sweep/policy_alpha_0.1_gamma_0.75_epsilon_0.2_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/gamma_sweep/policy_alpha_0.1_gamma_0.75_epsilon_0.2_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of policy maps throughout episodes.}
+    \label{fig:gamma_0.75_td_learning_policy}
+\end{figure}
+
+% value plots for gamma sweep of TD learning gamma = 0.75
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/gamma_sweep/value_function_alpha_0.1_gamma_0.75_epsilon_0.2_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/gamma_sweep/value_function_alpha_0.1_gamma_0.75_epsilon_0.2_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/gamma_sweep/value_function_alpha_0.1_gamma_0.75_epsilon_0.2_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/gamma_sweep/value_function_alpha_0.1_gamma_0.75_epsilon_0.2_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/gamma_sweep/value_function_alpha_0.1_gamma_0.75_epsilon_0.2_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/gamma_sweep/value_function_alpha_0.1_gamma_0.75_epsilon_0.2_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of value function throughout episodes.}
+    \label{fig:gamma_0.75_td_learning_value}
+\end{figure}
+
+% convergence plots for gamma sweep of TD learning gamma = 0.75
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_td/gamma_sweep/convergence_TD_alpha_0.1_gamma_0.75_epislon_0.2.png}
+    \caption{Converge raw.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_td/gamma_sweep/convergence_TD_smoothed_alpha_0.1_gamma_0.75_epislon_0.2.png}
+    \caption{Smoothed convergence.}
+    \end{subfigure}
+    \caption{Converge of value function.}
+    \label{fig:gamma_0.75_td_learning_convergence}
+\end{figure}
+
 
 \subsection{Effect of Gamma in Q-Learning}
 
+% policy plots for gamma sweep of Q learning gamma = 0.1
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/gamma_sweep/policy_alpha_0.1_gamma_0.1_epsilon_0.2_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/gamma_sweep/policy_alpha_0.1_gamma_0.1_epsilon_0.2_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/gamma_sweep/policy_alpha_0.1_gamma_0.1_epsilon_0.2_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/gamma_sweep/policy_alpha_0.1_gamma_0.1_epsilon_0.2_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/gamma_sweep/policy_alpha_0.1_gamma_0.1_epsilon_0.2_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/gamma_sweep/policy_alpha_0.1_gamma_0.1_epsilon_0.2_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of policy maps throughout episodes.}
+    \label{fig:gamma_0.1_q_learning_policy}
+\end{figure}
+
+% value plots for gamma sweep of Q learning gamma = 0.1
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/gamma_sweep/value_function_alpha_0.1_gamma_0.1_epsilon_0.2_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/gamma_sweep/value_function_alpha_0.1_gamma_0.1_epsilon_0.2_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/gamma_sweep/value_function_alpha_0.1_gamma_0.1_epsilon_0.2_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/gamma_sweep/value_function_alpha_0.1_gamma_0.1_epsilon_0.2_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/gamma_sweep/value_function_alpha_0.1_gamma_0.1_epsilon_0.2_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/gamma_sweep/value_function_alpha_0.1_gamma_0.1_epsilon_0.2_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of value function throughout episodes.}
+    \label{fig:gamma_0.1_q_learning_value}
+\end{figure}
+
+% convergence plots for gamma sweep of Q learning gamma = 0.1
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_q/gamma_sweep/convergence_Q_alpha_0.1_gamma_0.1_epislon_0.2.png}
+    \caption{Converge raw.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_q/gamma_sweep/convergence_Q_smoothed_alpha_0.1_gamma_0.1_epislon_0.2.png}
+    \caption{Smoothed convergence.}
+    \end{subfigure}
+    \caption{Converge of value function.}
+    \label{fig:gamma_0.1_q_learning_convergence}
+\end{figure}
+
+% policy plots for gamma sweep of Q learning gamma = 0.25
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/gamma_sweep/policy_alpha_0.1_gamma_0.25_epsilon_0.2_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/gamma_sweep/policy_alpha_0.1_gamma_0.25_epsilon_0.2_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/gamma_sweep/policy_alpha_0.1_gamma_0.25_epsilon_0.2_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/gamma_sweep/policy_alpha_0.1_gamma_0.25_epsilon_0.2_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/gamma_sweep/policy_alpha_0.1_gamma_0.25_epsilon_0.2_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/gamma_sweep/policy_alpha_0.1_gamma_0.25_epsilon_0.2_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of policy maps throughout episodes.}
+    \label{fig:gamma_0.25_q_learning_policy}
+\end{figure}
+
+% value plots for gamma sweep of Q learning gamma = 0.25
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/gamma_sweep/value_function_alpha_0.1_gamma_0.25_epsilon_0.2_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/gamma_sweep/value_function_alpha_0.1_gamma_0.25_epsilon_0.2_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/gamma_sweep/value_function_alpha_0.1_gamma_0.25_epsilon_0.2_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/gamma_sweep/value_function_alpha_0.1_gamma_0.25_epsilon_0.2_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/gamma_sweep/value_function_alpha_0.1_gamma_0.25_epsilon_0.2_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/gamma_sweep/value_function_alpha_0.1_gamma_0.25_epsilon_0.2_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of value function throughout episodes.}
+    \label{fig:gamma_0.25_q_learning_value}
+\end{figure}
+
+% convergence plots for gamma sweep of Q learning gamma = 0.25
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_q/gamma_sweep/convergence_Q_alpha_0.1_gamma_0.25_epislon_0.2.png}
+    \caption{Converge raw.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_q/gamma_sweep/convergence_Q_smoothed_alpha_0.1_gamma_0.25_epislon_0.2.png}
+    \caption{Smoothed convergence.}
+    \end{subfigure}
+    \caption{Converge of value function.}
+    \label{fig:gamma_0.25_q_learning_convergence}
+\end{figure}
+
+% policy plots for gamma sweep of Q learning gamma = 0.5
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/gamma_sweep/policy_alpha_0.1_gamma_0.5_epsilon_0.2_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/gamma_sweep/policy_alpha_0.1_gamma_0.5_epsilon_0.2_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/gamma_sweep/policy_alpha_0.1_gamma_0.5_epsilon_0.2_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/gamma_sweep/policy_alpha_0.1_gamma_0.5_epsilon_0.2_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/gamma_sweep/policy_alpha_0.1_gamma_0.5_epsilon_0.2_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/gamma_sweep/policy_alpha_0.1_gamma_0.5_epsilon_0.2_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of policy maps throughout episodes.}
+    \label{fig:gamma_0.5_q_learning_policy}
+\end{figure}
+
+% value plots for gamma sweep of Q learning gamma = 0.5
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/gamma_sweep/value_function_alpha_0.1_gamma_0.5_epsilon_0.2_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/gamma_sweep/value_function_alpha_0.1_gamma_0.5_epsilon_0.2_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/gamma_sweep/value_function_alpha_0.1_gamma_0.5_epsilon_0.2_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/gamma_sweep/value_function_alpha_0.1_gamma_0.5_epsilon_0.2_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/gamma_sweep/value_function_alpha_0.1_gamma_0.5_epsilon_0.2_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/gamma_sweep/value_function_alpha_0.1_gamma_0.5_epsilon_0.2_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of value function throughout episodes.}
+    \label{fig:gamma_0.5_q_learning_value}
+\end{figure}
+
+% convergence plots for gamma sweep of Q learning gamma = 0.5
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_q/gamma_sweep/convergence_Q_alpha_0.1_gamma_0.5_epislon_0.2.png}
+    \caption{Converge raw.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_q/gamma_sweep/convergence_Q_smoothed_alpha_0.1_gamma_0.5_epislon_0.2.png}
+    \caption{Smoothed convergence.}
+    \end{subfigure}
+    \caption{Converge of value function.}
+    \label{fig:gamma_0.5_q_learning_convergence}
+\end{figure}
+
+% policy plots for gamma sweep of Q learning gamma = 0.75
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/gamma_sweep/policy_alpha_0.1_gamma_0.75_epsilon_0.2_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/gamma_sweep/policy_alpha_0.1_gamma_0.75_epsilon_0.2_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/gamma_sweep/policy_alpha_0.1_gamma_0.75_epsilon_0.2_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/gamma_sweep/policy_alpha_0.1_gamma_0.75_epsilon_0.2_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/gamma_sweep/policy_alpha_0.1_gamma_0.75_epsilon_0.2_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/gamma_sweep/policy_alpha_0.1_gamma_0.75_epsilon_0.2_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of policy maps throughout episodes.}
+    \label{fig:gamma_0.75_q_learning_policy}
+\end{figure}
+
+% value plots for gamma sweep of Q learning gamma = 0.75
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/gamma_sweep/value_function_alpha_0.1_gamma_0.75_epsilon_0.2_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/gamma_sweep/value_function_alpha_0.1_gamma_0.75_epsilon_0.2_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/gamma_sweep/value_function_alpha_0.1_gamma_0.75_epsilon_0.2_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/gamma_sweep/value_function_alpha_0.1_gamma_0.75_epsilon_0.2_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/gamma_sweep/value_function_alpha_0.1_gamma_0.75_epsilon_0.2_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/gamma_sweep/value_function_alpha_0.1_gamma_0.75_epsilon_0.2_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of value function throughout episodes.}
+    \label{fig:gamma_0.75_q_learning_value}
+\end{figure}
+
+% convergence plots for gamma sweep of Q learning gamma = 0.75
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_q/gamma_sweep/convergence_Q_alpha_0.1_gamma_0.75_epislon_0.2.png}
+    \caption{Converge raw.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_q/gamma_sweep/convergence_Q_smoothed_alpha_0.1_gamma_0.75_epislon_0.2.png}
+    \caption{Smoothed convergence.}
+    \end{subfigure}
+    \caption{Converge of value function.}
+    \label{fig:gamma_0.75_q_learning_convergence}
+\end{figure}
+
+
+
 \subsection{Effect of Epsilon in Temporal Difference Learning}
+% parameters_epsilon_sweep = [{"alpha": 0.1, "gamma": 0.95, "epsilon": 0.0, "episodes": 10000},
+%                 {"alpha": 0.1, "gamma": 0.95, "epsilon": 0.2, "episodes": 10000},
+%                 {"alpha": 0.1, "gamma": 0.95, "epsilon": 0.5, "episodes": 10000},
+%                 {"alpha": 0.1, "gamma": 0.95, "epsilon": 0.8, "episodes": 10000},
+%                 {"alpha": 0.1, "gamma": 0.95, "epsilon": 1.0, "episodes": 10000}]
+
+
+
+% policy plots for epsilon sweep of TD learning epsilon = 0.0
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_0.0_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_0.0_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_0.0_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_0.0_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_0.0_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_0.0_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of policy maps throughout episodes.}
+    \label{fig:epsilon_0.0_td_learning_policy}
+\end{figure}
+
+% value plots for epsilon sweep of TD learning epsilon = 0.0
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_0.0_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_0.0_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_0.0_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_0.0_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_0.0_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_0.0_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of value function throughout episodes.}
+    \label{fig:epsilon_0.0_td_learning_value}
+\end{figure}
+
+% convergence plots for epsilon sweep of TD learning epsilon = 0.0
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_td/epsilon_sweep/convergence_TD_alpha_0.1_gamma_0.95_epislon_0.0.png}
+    \caption{Converge raw.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_td/epsilon_sweep/convergence_TD_smoothed_alpha_0.1_gamma_0.95_epislon_0.0.png}
+    \caption{Smoothed convergence.}
+    \end{subfigure}
+    \caption{Converge of value function.}
+    \label{fig:epsilon_0.0_td_learning_convergence}
+\end{figure}
+
+% policy plots for epsilon sweep of TD learning epsilon = 0.5
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_0.5_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_0.5_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_0.5_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_0.5_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_0.5_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_0.5_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of policy maps throughout episodes.}
+    \label{fig:epsilon_0.5_td_learning_policy}
+\end{figure}
+
+% value plots for epsilon sweep of TD learning epsilon = 0.5
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_0.5_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_0.5_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_0.5_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_0.5_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_0.5_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_0.5_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of value function throughout episodes.}
+    \label{fig:epsilon_0.5_td_learning_value}
+\end{figure}
+
+% convergence plots for epsilon sweep of TD learning epsilon = 0.5
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_td/epsilon_sweep/convergence_TD_alpha_0.1_gamma_0.95_epislon_0.5.png}
+    \caption{Converge raw.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_td/epsilon_sweep/convergence_TD_smoothed_alpha_0.1_gamma_0.95_epislon_0.5.png}
+    \caption{Smoothed convergence.}
+    \end{subfigure}
+    \caption{Converge of value function.}
+    \label{fig:epsilon_0.5_td_learning_convergence}
+\end{figure}
+
+% policy plots for epsilon sweep of TD learning epsilon = 0.8
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_0.8_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_0.8_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_0.8_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_0.8_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_0.8_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_0.8_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of policy maps throughout episodes.}
+    \label{fig:epsilon_0.8_td_learning_policy}
+\end{figure}
+
+% value plots for epsilon sweep of TD learning epsilon = 0.8
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_0.8_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_0.8_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_0.8_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_0.8_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_0.8_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_0.8_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of value function throughout episodes.}
+    \label{fig:epsilon_0.8_td_learning_value}
+\end{figure}
+
+% convergence plots for epsilon sweep of TD learning epsilon = 0.8
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_td/epsilon_sweep/convergence_TD_alpha_0.1_gamma_0.95_epislon_0.8.png}
+    \caption{Converge raw.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_td/epsilon_sweep/convergence_TD_smoothed_alpha_0.1_gamma_0.95_epislon_0.8.png}
+    \caption{Smoothed convergence.}
+    \end{subfigure}
+    \caption{Converge of value function.}
+    \label{fig:epsilon_0.8_td_learning_convergence}
+\end{figure}
+
+% policy plots for epsilon sweep of TD learning epsilon = 1.0
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_1.0_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_1.0_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_1.0_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_1.0_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_1.0_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_td/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_1.0_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of policy maps throughout episodes.}
+    \label{fig:epsilon_1.0_td_learning_policy}
+\end{figure}
+
+% value plots for epsilon sweep of TD learning epsilon = 1.0
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_1.0_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_1.0_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_1.0_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_1.0_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_1.0_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_td/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_1.0_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of value function throughout episodes.}
+    \label{fig:epsilon_1.0_td_learning_value}
+\end{figure}
+
+% convergence plots for epsilon sweep of TD learning epsilon = 1.0
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_td/epsilon_sweep/convergence_TD_alpha_0.1_gamma_0.95_epislon_1.0.png}
+    \caption{Converge raw.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_td/epsilon_sweep/convergence_TD_smoothed_alpha_0.1_gamma_0.95_epislon_1.0.png}
+    \caption{Smoothed convergence.}
+    \end{subfigure}
+    \caption{Converge of value function.}
+    \label{fig:epsilon_1.0_td_learning_convergence}
+\end{figure}
+
+
+
 
 \subsection{Effect of Epsilon in Q-Learning}
+
+% policy plots for epsilon sweep of Q learning epsilon = 0.0
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_0.0_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_0.0_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_0.0_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_0.0_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_0.0_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_0.0_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of policy maps throughout episodes.}
+    \label{fig:epsilon_0.0_q_learning_policy}
+\end{figure}
+
+% value plots for epsilon sweep of Q learning epsilon = 0.0
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_0.0_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_0.0_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_0.0_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_0.0_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_0.0_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_0.0_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of value function throughout episodes.}
+    \label{fig:epsilon_0.0_q_learning_value}
+\end{figure}
+
+% convergence plots for epsilon sweep of Q learning epsilon = 0.0
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_q/epsilon_sweep/convergence_Q_alpha_0.1_gamma_0.95_epislon_0.0.png}
+    \caption{Converge raw.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_q/epsilon_sweep/convergence_Q_smoothed_alpha_0.1_gamma_0.95_epislon_0.0.png}
+    \caption{Smoothed convergence.}
+    \end{subfigure}
+    \caption{Converge of value function.}
+    \label{fig:epsilon_0.0_q_learning_convergence}
+\end{figure}
+
+% policy plots for epsilon sweep of Q learning epsilon = 0.5
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_0.5_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_0.5_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_0.5_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_0.5_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_0.5_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_0.5_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of policy maps throughout episodes.}
+    \label{fig:epsilon_0.5_q_learning_policy}
+\end{figure}
+
+% value plots for epsilon sweep of Q learning epsilon = 0.5
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_0.5_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_0.5_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_0.5_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_0.5_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_0.5_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_0.5_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of value function throughout episodes.}
+    \label{fig:epsilon_0.5_q_learning_value}
+\end{figure}
+
+% convergence plots for epsilon sweep of Q learning epsilon = 0.5
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_q/epsilon_sweep/convergence_Q_alpha_0.1_gamma_0.95_epislon_0.5.png}
+    \caption{Converge raw.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_q/epsilon_sweep/convergence_Q_smoothed_alpha_0.1_gamma_0.95_epislon_0.5.png}
+    \caption{Smoothed convergence.}
+    \end{subfigure}
+    \caption{Converge of value function.}
+    \label{fig:epsilon_0.5_q_learning_convergence}
+\end{figure}
+
+% policy plots for epsilon sweep of Q learning epsilon = 0.8
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_0.8_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_0.8_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_0.8_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_0.8_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_0.8_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_0.8_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of policy maps throughout episodes.}
+    \label{fig:epsilon_0.8_q_learning_policy}
+\end{figure}
+
+% value plots for epsilon sweep of Q learning epsilon = 0.8
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_0.8_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_0.8_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_0.8_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_0.8_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_0.8_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_0.8_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of value function throughout episodes.}
+    \label{fig:epsilon_0.8_q_learning_value}
+\end{figure}
+
+% convergence plots for epsilon sweep of Q learning epsilon = 0.8
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_q/epsilon_sweep/convergence_Q_alpha_0.1_gamma_0.95_epislon_0.8.png}
+    \caption{Converge raw.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_q/epsilon_sweep/convergence_Q_smoothed_alpha_0.1_gamma_0.95_epislon_0.8.png}
+    \caption{Smoothed convergence.}
+    \end{subfigure}
+    \caption{Converge of value function.}
+    \label{fig:epsilon_0.8_q_learning_convergence}
+\end{figure}
+
+% policy plots for epsilon sweep of Q learning epsilon = 1.0
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_1.0_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_1.0_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_1.0_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_1.0_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_1.0_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/policy_q/epsilon_sweep/policy_alpha_0.1_gamma_0.95_epsilon_1.0_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of policy maps throughout episodes.}
+    \label{fig:epsilon_1.0_q_learning_policy}
+\end{figure}
+
+% value plots for epsilon sweep of Q learning epsilon = 1.0
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_1.0_iteration_1.png}
+    \caption{Episode 1.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_1.0_iteration_50.png}
+    \caption{Episode 50}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_1.0_iteration_100.png}
+    \caption{Episode 100}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_1.0_iteration_1000.png}
+    \caption{Episode 1000.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_1.0_iteration_5000.png}
+    \caption{Episode 5000}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/value_q/epsilon_sweep/value_function_alpha_0.1_gamma_0.95_epsilon_1.0_iteration_10000.png}
+    \caption{Episode 10000}
+    \end{subfigure}
+    \caption{Evolution of value function throughout episodes.}
+    \label{fig:epsilon_1.0_q_learning_value}
+\end{figure}
+
+% convergence plots for epsilon sweep of Q learning epsilon = 1.0
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_q/epsilon_sweep/convergence_Q_alpha_0.1_gamma_0.95_epislon_1.0.png}
+    \caption{Converge raw.}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{figures/convergence_q/epsilon_sweep/convergence_Q_smoothed_alpha_0.1_gamma_0.95_epislon_1.0.png}
+    \caption{Smoothed convergence.}
+    \end{subfigure}
+    \caption{Converge of value function.}
+    \label{fig:epsilon_1.0_q_learning_convergence}
+\end{figure}
+
+
+
+
+
 
 \section{Discussions}
 \subsection{Q1}
