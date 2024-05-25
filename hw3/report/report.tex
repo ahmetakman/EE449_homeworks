@@ -1514,7 +1514,9 @@ Contrary to temporal difference learning, we can say that smaller gamma values c
 %                 {"alpha": 0.1, "gamma": 0.95, "epsilon": 0.8, "episodes": 10000},
 %                 {"alpha": 0.1, "gamma": 0.95, "epsilon": 1.0, "episodes": 10000}]
 
+Here the sweep of epsilon resuls are presented. The parameters used for these experiments are as follows: $\alpha = 0.1$, $\gamma = 0.95$, and the number of episodes is set to 10000. The epsilon parameter is varied from 0.0 to 1.0. 
 
+Figure \ref{fig:epsilon_0.0_td_learning_policy} shows the policy maps for the epsilon parameter set to 0.0. Figure \ref{fig:epsilon_0.0_td_learning_value} illustrates the value function plots for the epsilon parameter set to 0.0. Figure \ref{fig:epsilon_0.0_td_learning_convergence} provides the convergence plots for the epsilon parameter set to 0.0.
 
 % policy plots for epsilon sweep of TD learning epsilon = 0.0
 \begin{figure}[H]
@@ -1590,6 +1592,8 @@ Contrary to temporal difference learning, we can say that smaller gamma values c
     \label{fig:epsilon_0.0_td_learning_convergence}
 \end{figure}
 
+Figure \ref{fig:epsilon_0.5_td_learning_policy} shows the policy maps for the epsilon parameter set to 0.5.     Figure \ref{fig:epsilon_0.5_td_learning_value} illustrates the value function plots for the epsilon parameter set to 0.5. Figure \ref{fig:epsilon_0.5_td_learning_convergence} provides the convergence plots for the epsilon parameter set to 0.5.
+
 % policy plots for epsilon sweep of TD learning epsilon = 0.5
 \begin{figure}[H]
     \begin{subfigure}{0.3\textwidth}
@@ -1663,6 +1667,8 @@ Contrary to temporal difference learning, we can say that smaller gamma values c
     \caption{Converge of value function.}
     \label{fig:epsilon_0.5_td_learning_convergence}
 \end{figure}
+
+Figure \ref{fig:epsilon_0.8_td_learning_policy} shows the policy maps for the epsilon parameter set to 0.8. Figure \ref{fig:epsilon_0.8_td_learning_value} illustrates the value function plots for the epsilon parameter set to 0.8. Figure \ref{fig:epsilon_0.8_td_learning_convergence} provides the convergence plots for the epsilon parameter set to 0.8.
 
 % policy plots for epsilon sweep of TD learning epsilon = 0.8
 \begin{figure}[H]
@@ -1738,6 +1744,8 @@ Contrary to temporal difference learning, we can say that smaller gamma values c
     \label{fig:epsilon_0.8_td_learning_convergence}
 \end{figure}
 
+Figure \ref{fig:epsilon_1.0_td_learning_policy} shows the policy maps for the epsilon parameter set to 1.0. Figure \ref{fig:epsilon_1.0_td_learning_value} illustrates the value function plots for the epsilon parameter set to 1.0. Figure \ref{fig:epsilon_1.0_td_learning_convergence} provides the convergence plots for the epsilon parameter set to 1.0.
+
 % policy plots for epsilon sweep of TD learning epsilon = 1.0
 \begin{figure}[H]
     \begin{subfigure}{0.3\textwidth}
@@ -1812,10 +1820,13 @@ Contrary to temporal difference learning, we can say that smaller gamma values c
     \label{fig:epsilon_1.0_td_learning_convergence}
 \end{figure}
 
-
-
+What we have observed from the results is that the epsilon parameter is another crucial one for the convergence of the value function. The epsilon parameter set to 0.0 can lead to the optimal policy than the other epsilon values. Even though the epsilon greater that the 0.2 can lead to a converged value function, the optimal policy can not be achieved.
 
 \subsection{Effect of Epsilon in Q-Learning}
+Using same set of parameters, we have conducted the experiments for Q learning. The epsilon parameter is varied from 0.0 to 1.0.
+
+Figure \ref{fig:epsilon_0.0_q_learning_policy} shows the policy maps for the epsilon parameter set to 0.0. Figure \ref{fig:epsilon_0.0_q_learning_value} illustrates the value function plots for the epsilon parameter set to 0.0. Figure \ref{fig:epsilon_0.0_q_learning_convergence} provides the convergence plots for the epsilon parameter set to 0.0.
+
 
 % policy plots for epsilon sweep of Q learning epsilon = 0.0
 \begin{figure}[H]
@@ -1891,6 +1902,8 @@ Contrary to temporal difference learning, we can say that smaller gamma values c
     \label{fig:epsilon_0.0_q_learning_convergence}
 \end{figure}
 
+Figure \ref{fig:epsilon_0.5_q_learning_policy} shows the policy maps for the epsilon parameter set to 0.5.     Figure \ref{fig:epsilon_0.5_q_learning_value} illustrates the value function plots for the epsilon parameter set to 0.5. Figure \ref{fig:epsilon_0.5_q_learning_convergence} provides the convergence plots for the epsilon parameter set to 0.5.
+
 % policy plots for epsilon sweep of Q learning epsilon = 0.5
 \begin{figure}[H]
     \begin{subfigure}{0.3\textwidth}
@@ -1965,6 +1978,7 @@ Contrary to temporal difference learning, we can say that smaller gamma values c
     \label{fig:epsilon_0.5_q_learning_convergence}
 \end{figure}
 
+Figure \ref{fig:epsilon_0.8_q_learning_policy} shows the policy maps for the epsilon parameter set to 0.8. Figure \ref{fig:epsilon_0.8_q_learning_value} illustrates the value function plots for the epsilon parameter set to 0.8. Figure \ref{fig:epsilon_0.8_q_learning_convergence} provides the convergence plots for the epsilon parameter set to 0.8.
 % policy plots for epsilon sweep of Q learning epsilon = 0.8
 \begin{figure}[H]
     \begin{subfigure}{0.3\textwidth}
@@ -2038,6 +2052,8 @@ Contrary to temporal difference learning, we can say that smaller gamma values c
     \caption{Converge of value function.}
     \label{fig:epsilon_0.8_q_learning_convergence}
 \end{figure}
+
+Figure \ref{fig:epsilon_1.0_q_learning_policy} shows the policy maps for the epsilon parameter set to 1.0. Figure \ref{fig:epsilon_1.0_q_learning_value} illustrates the value function plots for the epsilon parameter set to 1.0. Figure \ref{fig:epsilon_1.0_q_learning_convergence} provides the convergence plots for the epsilon parameter set to 1.0.
 
 % policy plots for epsilon sweep of Q learning epsilon = 1.0
 \begin{figure}[H]
@@ -2113,6 +2129,7 @@ Contrary to temporal difference learning, we can say that smaller gamma values c
     \label{fig:epsilon_1.0_q_learning_convergence}
 \end{figure}
 
+What we observed from the Q-learning experiments that all of them have converged to the optimal policy. The epsilon parameter does not have a significant effect on the eventual convergence of the value function. 
 
 
 
