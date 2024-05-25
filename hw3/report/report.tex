@@ -573,7 +573,7 @@ Lastly, Figure \ref{fig:alpha_1_td_learning_policy} shows the policy maps for th
     \label{fig:alpha_1_td_learning_convergence}
 \end{figure}
 
-What we can interpret from the sweep of alpha value in temporal difference learning as follows. When the alpha value is set to 0.001, the agent try learns the optimal policy and value function as expected. However, the convergence is slower compared to the other alpha values and proper convergence is not observed. When the alpha value set to 0.01 convergence observed to optimal policy. When the alpha value is set to 0.5, the agent learns the optimal policy and value function as expected. The convergence is faster compared to the alpha value set to 0.01. Lastly, when the alpha value is set to 1, the agent can not learn the optimal policy and value function since the exploration is too much. The convergence is faster compared to the alpha value set to 0.5 but it is hard to say this is a stable convergence. The reason is, the convergence is not as smooth as the alpha value set to 0.5. So the defaul value and 0.5 are better choices for the alpha parameter in temporal difference learning.
+What we can interpret from the sweep of alpha value in temporal difference learning as follows. When the alpha value is set to 0.001, the agent try learns the optimal policy and value function as expected. However, the convergence is slower compared to the other alpha values and proper convergence is not observed. When the alpha value set to 0.01 convergence observed to optimal policy. When the alpha value is set to 0.5, the agent learns the optimal policy and value function as expected. The convergence is faster compared to the alpha value set to 0.01. Lastly, when the alpha value is set to 1, the agent can not learn the optimal policy and value function since the learning rate overshoots. The convergence is faster compared to the alpha value set to 0.5 but it is hard to say this is a stable convergence. The reason is, the convergence is not as smooth as the alpha value set to 0.5. So the defaul value and 0.5 are better choices for the alpha parameter in temporal difference learning.
 
 
 \subsection{Effect of Alpha in Q-Learning}
@@ -884,7 +884,7 @@ Figure \ref{fig:alpha_1_q_learning_policy} shows the policy maps for the alpha p
     \label{fig:alpha_1_q_learning_convergence}
 \end{figure}
 
-As a result we can say that the for small alpha values Q learning is an effective strategy as we see convergence is possible. However, for the alpha value set to 1, the agent can not learn the optimal policy and value function since the exploration is too much again. For these values the trend of fast convergence is observed from 0.001 to 0.5. However, the convergence is not stable for the alpha value set to 1. So the values up to 0.5 are better choices for the alpha parameter in Q learning.
+As a result we can say that the for small alpha values Q learning is an effective strategy as we see convergence is possible. However, for the alpha value set to 1, the agent can not learn the optimal policy and value function since the learning rate is too much again. For these values the trend of fast convergence is observed from 0.001 to 0.5. However, the convergence is not stable for the alpha value set to 1. So the values up to 0.5 are better choices for the alpha parameter in Q learning.
 
 
 \subsection{Effect of Gamma in Temporal Difference Learning}
@@ -1197,7 +1197,7 @@ Figure \ref{fig:gamma_0.75_td_learning_policy} shows the policy maps for the gam
     \label{fig:gamma_0.75_td_learning_convergence}
 \end{figure}
 
-What we can interpret from the results is that the gamma parameter has a significant effect on the convergence of the value function. As we can see from the results, the gamma values up to 0.95 are not feasible choices since the agent rarely changes its policy. Also, since the agents can get stuck at exploitation we see quite long training process. In order to prevent too much computation time a certain limit is set for maximum number of steps. We can say that the gamma value set to default is the best choice for the gamma parameter amongst the others in temporal difference learning.  
+What we can interpret from the results is that the gamma parameter has a significant effect on the convergence of the value function. As we can see from the results, the gamma values up to 0.95 are not feasible choices since the agent rarely changes its policy. Also, since the agents can get stuck at exploitation we see quite long training process where having small discount factor does not help. In order to prevent too much computation time a certain limit is set for maximum number of steps. We can say that the gamma value set to default is the best choice for the gamma parameter amongst the others in temporal difference learning.  
 
 \subsection{Effect of Gamma in Q-Learning}
 The results for the effect of gamma parameter in Q learning are provided below. The parameter set used for this experiment is as follows: $\alpha = 0.1$, $\epsilon = 0.2$, and the number of episodes is set to 10000. The gamma parameter is varied from 0.1 to 0.95.
@@ -1820,7 +1820,7 @@ Figure \ref{fig:epsilon_1.0_td_learning_policy} shows the policy maps for the ep
     \label{fig:epsilon_1.0_td_learning_convergence}
 \end{figure}
 
-What we have observed from the results is that the epsilon parameter is another crucial one for the convergence of the value function. The epsilon parameter set to 0.0 can lead to the optimal policy than the other epsilon values. Even though the epsilon greater that the 0.2 can lead to a converged value function, the optimal policy can not be achieved.
+What we have observed from the results is that the epsilon parameter is another crucial one for the convergence of the value function. The epsilon parameter set to 0.0 can lead to the optimal policy than the other epsilon values. Even though the epsilon greater that the 0.2 can lead to a converged value function, the optimal policy can not be achieved since exploration-exploitation balance is exceedingly towards exploration.
 
 \subsection{Effect of Epsilon in Q-Learning}
 Using same set of parameters, we have conducted the experiments for Q learning. The epsilon parameter is varied from 0.0 to 1.0.
@@ -2129,7 +2129,7 @@ Figure \ref{fig:epsilon_1.0_q_learning_policy} shows the policy maps for the eps
     \label{fig:epsilon_1.0_q_learning_convergence}
 \end{figure}
 
-What we observed from the Q-learning experiments that all of them have converged to the optimal policy. The epsilon parameter does not have a significant effect on the eventual convergence of the value function. 
+What we observed from the Q-learning experiments that all of them have converged to the optimal policy. The epsilon parameter does not have a significant effect on the eventual convergence of the value function, where the epsilon parameter associated with the exploration side of the exploration-exploitation trade-off. 
 
 
 
@@ -2137,20 +2137,26 @@ What we observed from the Q-learning experiments that all of them have converged
 
 \section{Discussions}
 \subsection{Q1}
-
+The rationale behind transition probabilities and reward function can be explained as follows. The transition probabilities are the probabilities of transitioning from one state to another state given an action. The stochastic setting is used in this experiment where the choosen action may not be the action that the agent will take. This allow the agent to explore the environment and learn the optimal policy. The reward function is the function that provides the reward for the agent when it takes an action in a state. So the reward function is the feedback mechanism for the agent to learn the optimal policy.
 \subsection{Q2}
-
+By looking at the value maps in default settings we can describe the evolution of the vale function as follows. The value function is initialized with zeros. The value function is updated by the Bellman equation. The value function is updated by the sum of the reward and the discounted value of the next state. The value function is updated iteratively until the convergence. Here, at first iterations exploration is more dominant since most of the values are zeros. At first trials the agent hits traps and episodes proceed. Then, the agent starts o explore the regions close to the goal. When the agent hits the goal states, the values of the nearby states starts to increase and ,roughly speaking, positive reinforcement starts to propagate as the optimal path gets higher and higher values from goal to start state epiosde by episode. 
 \subsection{Q3}
+Utility value function converged for TD(0) learning in cases convergence said to available. Approximately, first 1000 episodes were the time the values are more or less converged.
 
 \subsection{Q4}
+As explained, the TD(0) learning is sensitive to learning rate (alpha) and discount factor (gamma) parameters. As the learning rate increases, the value function converges faster. However, if the learning rate is too high, the value function may not converge. The discount factor is another crucial parameter for the convergence of the value function. The discount factor is the factor that determines the importance of the future rewards. If the discount factor is too high, the value function may not converge. If the discount factor is too low, the value function may converge to the suboptimal policy.
 
 \subsection{Q5}
+There were two points that I encountered while implementing TD(0) learning. First, the borders of the map needed to be handled properly like the invalid states. I set additional layer of invalid states, making the map (12, 12) which makes the map borders shared (like torus shaped periodicty). This allowed us to have equally generic algorithm every state. Second, utility values invalid states were intially set to same value as others. This caused the agent to stuck in the invalid states while exploiation is dominant. I set the utility values of invalid states to quite negative value so this way the policy maps are also not detoriated.
 
 \subsection{Q6}
+We can see from the experiments that the Q-learning stabilizes much faster than temporal difference learning algorithm. The reason is   that the Q-learning algorithm is an off-policy algorithm, which means that the Q-learning algorithm learns the optimal policy while following another policy. The TD (0) only evaluaes one possible action where the Q-learning evaluates all possible actions.
 
 \subsection{Q7}
+The epsilon parameter (exploration rate) allow us to set a balance between exploration and exploitation. If the epsilon parameter is set to 0.0, the agent will always exploit the environment. If the epsilon parameter is set to 1.0, the agent will always explore the environment. Here, we see also from the experiments that if we select the exploration rate too high, the agent will not be able to learn the optimal policy. However it is important to note that the epsilon parameter is ineffective for the Q-learning algorithm. The reason is that the Q-learning algorithm is an off-policy algorithm, which means that the Q-learning algorithm learns the optimal policy while following another policy. The TD (0) only evaluaes one possible action where the Q-learning evaluates all possible actions.
 
 \subsection{Q8}
+% Comparing TD(0) and Q-learning, we can say that the Q-learning algorithm is more stable and converges faster than the TD(0) learning algorithm. So, I would prefer using the Q-learning algorithm for the given problem and other similar problems.  
 
 \subsection{Q9}
 
