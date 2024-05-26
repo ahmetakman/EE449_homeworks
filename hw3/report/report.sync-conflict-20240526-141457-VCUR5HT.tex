@@ -2156,14 +2156,11 @@ We can see from the experiments that the Q-learning stabilizes much faster than 
 The epsilon parameter (exploration rate) allow us to set a balance between exploration and exploitation. If the epsilon parameter is set to 0.0, the agent will always exploit the environment. If the epsilon parameter is set to 1.0, the agent will always explore the environment. Here, we see also from the experiments that if we select the exploration rate too high, the agent will not be able to learn the optimal policy. However it is important to note that the epsilon parameter is ineffective for the Q-learning algorithm. The reason is that the Q-learning algorithm is an off-policy algorithm, which means that the Q-learning algorithm learns the optimal policy while following another policy. The TD (0) only evaluaes one possible action where the Q-learning evaluates all possible actions.
 
 \subsection{Q8}
-Comparing TD(0) and Q-learning, we can say that the Q-learning algorithm is more stable and converges faster than the TD(0) learning algorithm. So, I would prefer using the Q-learning algorithm for the given problem and other similar problems.  
+% Comparing TD(0) and Q-learning, we can say that the Q-learning algorithm is more stable and converges faster than the TD(0) learning algorithm. So, I would prefer using the Q-learning algorithm for the given problem and other similar problems.  
 
 \subsection{Q9}
-As the number of steps needed to be taken to reach the goal increase number of episodes needed to converge also increases. The reason is that the agent needs to explore more states to learn the optimal policy. The number of episodes needed to converge is directly proportional to the number of steps needed to be taken to reach the goal. Another factor would be the proximity of traps and goal. If the traps are close to the goal, the agent needs to explore more states to learn the optimal policy. So, in out case there was only one bottleneck and the agent had to overcome it to reach the goal. For example if the agent was surrounded by more traps, the number of episodes needed to converge would increase. The opposite of these cases would yield the improved learning. For problem setup if the invalid states were not subject to exploration the learning process would be much faster. Another point would be assigning very high negative utility values to traps and very high positive utility values to goal states. This would make the agent to learn the optimal policy faster, a.k.a. propagation of positive and negative reinforcement would be faster.
 
 \subsection{Q10}
-
-A very basic adjustment to the algortihm would be scheduling the epsilon parameter where exploration is encouraged in first episoded where in later episodes exploitation is favored. Another optimization would be adding a "number of steps to reach the goal" parameter to the algorithm as something to be optimized. This way the agent would be able to learn the optimal policy faster. 
 
 \section*{Appendix}
 The code set used throughout this homework is provided as follows. 
